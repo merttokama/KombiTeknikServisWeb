@@ -1,0 +1,17 @@
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.dll.config
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.dll
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.pdb
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.csprojResolveAssemblyReference.cache
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.csproj.CoreCompileInputs.cache
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.dll
+C:\Users\mertt\Desktop\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\TemplateAdminPanel.dll.config
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\TemplateAdminPanel.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\TemplateAdminPanel.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.csprojResolveAssemblyReference.cache
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.pdb
