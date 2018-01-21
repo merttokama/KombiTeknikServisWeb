@@ -1,0 +1,265 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServiceAreas</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/fontawesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/themify-icons/themify-icons.css">
+    <!-- Vendors-->                              
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/bootstrap4/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/owl.carousel/owl.carousel.css">
+    <!-- App & fonts-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+</head>
+
+<body>
+    <div class="page-wrap">
+
+        <!-- header -->
+        @{
+            Html.RenderAction("HeaderResult", "Home");
+        }
+        <!-- End / header -->
+        <!-- Content-->
+        <div class="md-content">
+            <!-- page-title -->
+            <div class="page-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+                            <h2 class="page-title__title" style="color: #f39c12;">Servis Bölgeleri</h2>
+
+                            <!--  -->
+                            <nav>
+                                <a class="breadcrumb__item" href="@Url.Action("Index","Home")">Home</a><span class="breadcrumb__item active">ServiceAreas</span>
+                            </nav><!-- End /  -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End / page-title -->
+            <section class="md-section">
+                <div class="container">
+                    <div class="grid-css grid-css--masonry" data-col-lg="3" data-col-md="2" data-col-sm="2" data-col-xs="1" data-gap="30">
+                        <div class="filter">
+                            <ul class="filter__list">
+                                <li><a href="#" data-filter="*">Hepsi</a></li>
+                                <li><a href="#" data-filter=".anadolu-yakasi">Anadolu Yakası</a></li>
+                                <li><a href="#" data-filter=".avrupa-yakasi">Avrupa Yakası</a></li>
+                                <li><a href="#" data-filter=".ankara">Ankara</a></li>
+                                <li><a href="#" data-filter=".izmir">İzmir</a></li>
+                            </ul>
+                        </div>
+                        <div class="grid__inner">
+                            <div class="grid-sizer"></div>
+                            <div class="grid-item anadolu-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.5528252494078!2d29.09161582925457!3d41.020632898706204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac85f8420d245%3A0xa3a2736d7c7d15db!2sNam%C4%B1k+Kemal+Mahallesi%2C+Cengiz+Topel+Cd.+33+B%2C+34762+%C3%9Cmraniye%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1516526319345" width="325" height="225" frameborder="0" style="border:0" ></iframe></div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Ümraniye Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item anadolu-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.9394734134412!2d29.021238829254507!3d40.98678199870645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab85e0ed6b1d3%3A0x9d580156b4c345!2zQ2FmZXJhxJ9hIE1haGFsbGVzaSwgTcO8aMO8cmRhciBDZC4gTm86OTUsIDM0NzEwIEthZMSxa8O2eS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1516530502047" width="325" height="225" frameborder="0" style="border:0" ></iframe></div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Kadıköy Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item avrupa-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d796.7279694654657!2d28.99742575669273!3d41.06802973287431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab6f83672f8bd%3A0x12c9d57e5a4cc0b8!2zTWVjaWRpeWVrw7Z5IE1haGFsbGVzaSwgMzQzODcgxZ5pxZ9saS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1516531045259" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Mecidiyeköy Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item ankara">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3054.223921016432!2d32.83975181571686!3d40.04810357940962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408209e9d9d404fb%3A0x479f78f84f358997!2zSGlzYXIgTWFoYWxsZXNpLCBCYcSfbHVtIEJ1bHZhcsSxIE5vOjEyLCAwNjI5MSBLZcOnacO2cmVuL0Fua2FyYQ!5e0!3m2!1str!2str!4v1516531000755" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Keçiören Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item izmir">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.2832502530164!2d27.097628815677247!3d38.458021579640885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd994e22902c3%3A0xaee832e94ac38812!2zxLB6bWly!5e0!3m2!1str!2str!4v1516530687834"width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Karşıyaka Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item avrupa-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.8871299174356!2d28.90927879584216!3d40.99136599862948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb9ef219cf25%3A0x50a187111ec26003!2sG%C3%B6kalp+Mahallesi%2C+39%2F2.+Sk.+No%3A9%2C+34020+Zeytinburnu%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1516530729506" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Zeytinburnu Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item avrupa-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473.2297009324909!2d29.05331000585083!3d41.1384340762152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caca98e876f0a3%3A0xe0f306d07b3acc8b!2zVGFyYWJ5YSBNYWhhbGxlc2ksIMOHxLFyYSBTay4gTm86MSwgMzQ0NTcgU2FyxLF5ZXIvxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1516530773740" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Tarabya Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item avrupa-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.2846207844605!2d29.006269229254595!3d41.04410059870605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7a24975fe5d%3A0xa05d7aa13cfcaf89!2sWissen!5e0!3m2!1str!2str!4v1516530837129" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Beşiktaş Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item corporate-finance anadolu-yakasi">
+                                <div class="grid-item__inner">
+                                    <div class="grid-item__content-wrapper">
+
+                                        <!-- post-02 -->
+                                        <div class="post-02">
+                                            <div class="post-02__media">
+                                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1502.5053358834728!2d29.092303233555654!3d41.13429299806048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacb27539ec801%3A0x9beffea0fe1d4f2f!2sMerkez+Mahallesi%2C+Mehmet+Yavuz+Cd.+No%3A5%2C+34820+Beykoz%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1516530886405" width="325" height="225" frameborder="0" style="border:0"></iframe>
+                                            </div>
+                                            <div class="post-02__body">
+                                                <h2 class="post-02__title"><a href="project-detail.html">Kombi Master Beykoz Şubesi</a></h2>
+                                                <div class="post-02__department">Yetkili Servis</div>
+                                            </div>
+                                        </div><!-- End / post-02 -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center"><a class="btn btn-primary btn-w180" href="#">Daha Fazla</a></div>
+                </div>
+            </section>
+
+        </div>
+        <!-- End / Content-->
+        <!-- footer -->
+        @{
+            Html.RenderAction("FooterResult", "Home");
+        }
+        <!-- End / footer -->
+
+    </div>
+    <!-- Vendors-->
+    <script type="text/javascript" src="~/assets/vendors/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/owl.carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/menu/menu.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
+    <!-- App-->
+    <script type="text/javascript" src="~/assets/js/main.js"></script>
+</body>
+</html>

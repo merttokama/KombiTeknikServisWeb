@@ -1,0 +1,83 @@
+﻿@model string[]
+<header class="header header__style-02">
+    <div class="container">
+        <div class="header__logo"><a href="index.html"><img src="~/assets/img/logo.png" alt="" /></a></div>
+        <div class="header__toogleGroup">
+            <div class="header__chooseLanguage">
+
+                <!-- dropdown -->
+                <div class="dropdown" data-init="dropdown">
+                    <a class="dropdown__toggle" href="javascript:void(0)">TR <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <div class="dropdown__content" data-position="right">
+                        <ul class="list-style-none">
+                            <li><a href="#">TR</a></li>
+                            <li><a href="@Url.Action("ComingSoon","Home")">EN(Yakında)</a></li>
+                        </ul>
+                    </div>
+                </div><!-- End / dropdown -->
+
+            </div>
+            <div class="search-form">
+                <div class="search-form__toggle"><i class="ti-search"></i></div>
+                <div class="search-form__form">
+
+                    <!-- form-search -->
+                    <div class="form-search">
+                        <form >
+                            <input class="form-control" type="text" placeholder="Aranacak Kelimeyi Giriniz..." />
+                        </form>
+                    </div><!-- End / form-search -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- consult-nav -->
+        <nav class="consult-nav">
+
+            <!-- consult-menu -->
+            <ul class="consult-menu">
+                <li class="@Html.Raw(Model[0])">
+                    <a href="@Url.Action("Index","Home")">AnaSayfa</a>
+                </li>
+                <li class="@Html.Raw(Model[1])">
+                    <a href="@Url.Action("About","Home")">hakkında</a>
+                </li>
+                <li class="menu-item-has-children @Html.Raw(Model[2])">
+                    <a href="#">cihaz takip</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="@Url.Action("FaultReport","Home")">Yeni Arıza Bildir</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ComingSoon","Home")">Arıza Takip</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="@Html.Raw(Model[3])">
+                    <a href="@Url.Action("ServiceAreas","Home")">Servis Bölgelerimiz</a>
+                </li>
+                <li class="@Html.Raw(Model[4])">
+                    <a href="@Url.Action("Contact","Home")">iletişim</a>
+                </li>
+                <li class="menu-item-has-children @Html.Raw(Model[5])">
+                    <a href="#">Üye İşlemleri</a>
+                    <ul class="sub-menu">
+                        <li >
+                            <a href="@Url.Action("Login","Account")">Giriş Yap</a>
+                        </li>
+                        <li >
+                            <a href="@Url.Action("Register","Account")">Kayıt Ol</a>
+                        </li>
+                        <li >
+                            <a href="@Url.Action("ForgotPassword","Account")">Şifremi Unuttum</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!-- consult-menu -->
+
+            <div class="navbar-toggle"><span></span><span></span><span></span></div>
+        </nav><!-- End / consult-nav -->
+
+    </div>
+</header>

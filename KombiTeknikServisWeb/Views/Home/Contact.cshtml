@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İletişim</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/fontawesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/themify-icons/themify-icons.css">
+    <!-- Vendors-->                             
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/bootstrap4/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendors/owl.carousel/owl.carousel.css">
+    <!-- App & fonts-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="page-wrap">
+
+        <!-- header -->
+        @{
+            Html.RenderAction("HeaderResult", "Home");
+        }
+        <!-- End / header -->
+        <!-- Content-->
+        <div class="md-content">
+            <!-- page-title -->
+            <div class="page-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+                            <h2 class="page-title__title" style="color: #f39c12;">İletişim</h2>
+
+                            <!--  -->
+                            <nav>
+                                <a class="breadcrumb__item" href="@Url.Action("Index","Home")">Home</a><span class="breadcrumb__item active">Contact</span>
+                            </nav><!-- End /  -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End / page-title -->
+            <!-- Section -->
+            <section class="md-section js-consult-form" style="background-color:#f7f7f7;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-0 offset-sm-0 offset-md-0 offset-lg-3 ">
+
+                            <!-- title-01 -->
+                            <div class="title-01">
+                                <h2 class="title-01__title">İletişim Detayları</h2>
+                                <div>Integer placerat ullamcorper urna nec rhoncus. Sed velit justo, lacinia non sapien imperdiet, sagitt</div>
+                            </div><!-- End / title-01 -->
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 ">
+
+                            <!-- iconbox -->
+                            <div class="iconbox iconbox__style-04">
+                                <div class="iconbox__icon"><i class="ti-email"></i></div>
+                                <div>
+                                    <h2 class="iconbox__title"><a href="#">Email</a></h2>
+                                    <div class="iconbox__description">merttokama@gmail.com</div>
+                                </div>
+                            </div><!-- End / iconbox -->
+
+                        </div>
+                        <div class="col-lg-4 ">
+
+                            <!-- iconbox -->
+                            <div class="iconbox iconbox__style-04">
+                                <div class="iconbox__icon"><i class="ti-location-pin"></i></div>
+                                <div>
+                                    <h2 class="iconbox__title"><a href="#">Konum</a></h2>
+                                    <div class="iconbox__description">3919 New Cut Rd, Ellicott City, <br>Maryland, US</div>
+                                </div>
+                            </div><!-- End / iconbox -->
+
+                        </div>
+                        <div class="col-lg-4 ">
+
+                            <!-- iconbox -->
+                            <div class="iconbox iconbox__style-04">
+                                <div class="iconbox__icon"><i class="ti-mobile"></i></div>
+                                <div>
+                                    <h2 class="iconbox__title"><a href="#">Telefon Numarası</a></h2>
+                                    <div class="iconbox__description">507 118 93 55</div>
+                                </div>
+                            </div><!-- End / iconbox -->
+
+                        </div>
+                    </div>
+
+                    <!-- form-01 -->
+                    @{
+                        Html.RenderAction("SectionContactUsResult", "Home");
+                    }
+                    <!-- End / form-01 -->
+
+                </div>
+            </section>
+            <!-- End / Section -->
+            <!-- Section -->
+
+            <!-- End / Section -->
+
+        </div>
+        <!-- End / Content-->
+        <!-- footer -->
+        @{
+            Html.RenderAction("FooterResult", "Home");
+        }
+        <!-- End / footer -->
+
+    </div>
+    <!-- Vendors-->
+    <script type="text/javascript" src="~/assets/vendors/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>                           
+    <script type="text/javascript" src="~/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>                           
+    <script type="text/javascript" src="~/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>                           
+    <script type="text/javascript" src="~/assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/owl.carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/menu/menu.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
+    <!-- App-->
+    <script type="text/javascript" src="~/assets/js/main.js"></script>
+</body>
+</html>
