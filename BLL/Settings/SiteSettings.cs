@@ -26,6 +26,7 @@ namespace BLL.Settings
                 message.From = new MailAddress(SiteMail);
                 message.Subject = model.Subject;
                 message.IsBodyHtml = true;
+                message.Body = model.Message;
                 message.BodyEncoding = Encoding.UTF8;
                 if (!string.IsNullOrEmpty(model.Cc))
                     message.CC.Add(new MailAddress(model.Cc));

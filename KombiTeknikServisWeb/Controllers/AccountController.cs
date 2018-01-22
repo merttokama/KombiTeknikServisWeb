@@ -26,6 +26,28 @@ namespace KombiTeknikServisWeb.Controllers
             HomeController.SecilenMenu(5);
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            var userManager = MembershipTools.NewUserManager();
+            var user = await userManager.FindAsync(model.Email, model.EmailAgain);
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, "Böyle bir email bulunamadı");
+                return View(model);
+            }
+            var YourPassword = user.Email;
+                await SiteSettings.SendMail(new MailModel()
+                {
+                    To = user.Email,
+                    Subject = "TeknikServisDB - Aktivasyon",
+                    Message = $"Merhaba {user.Name} {user.Surname} <br/>Yeni Şifreniz = <b>{YourPassword}</b></br> Hayırlı Olsun."
+                });
+                return RedirectToAction("Index", "Home");
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -300,27 +322,5 @@ namespace KombiTeknikServisWeb.Controllers
             });
             return View();
         }
-
-        #region PARTIAL
-
-        public PartialViewResult LoginResult()
-        {
-
-            return PartialView("_PartialLogin");
-        }
-
-        public PartialViewResult RegisterResult()
-        {
-
-            return PartialView("_PartialRegister");
-        }
-
-        public PartialViewResult ForgotPasswordResult()
-        {
-
-            return PartialView("_PartialForgotPassword");
-        }
-
-        #endregion
     }
 }

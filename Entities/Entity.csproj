@@ -89,6 +89,7 @@
     <Compile Include="Models\WorksReports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\RangeAttribute.cs" />
+    <Compile Include="ViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MailModel.cs" />
     <Compile Include="ViewModels\ProfileVİewModel.cs" />

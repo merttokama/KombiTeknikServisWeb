@@ -33,5 +33,10 @@ The password's first character must be a letter, it must contain at least 5 char
         [Display(Name = "Şifre Tekrar")]
         [Compare("Password", ErrorMessage = "Şifreler uyuşmuyor")]
         public string ConfirmPassword { get; set; }
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Telefon Numarası")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        public string PhoneNumber { get; set; }
     }
 }

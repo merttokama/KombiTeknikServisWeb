@@ -1,6 +1,10 @@
 ﻿@{
     Layout = null;
 }
+@model Entity.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,10 +58,27 @@
                 </div>
             </div>
             <!-- End / page-title -->
-            @{
-                Html.RenderAction("LoginResult", "Account");
-            }
-        </div>
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="group">
+                    <span class="text-danger">@Html.ValidationSummary()</span>
+                </div>
+                    <div class="group">
+                        @Html.TextBoxFor(x => x.Username, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                        @Html.LabelFor(x => x.Username, new { type = "text" })
+                    </div>
+                    <div class="group">
+                        @Html.TextBoxFor(x => x.Password, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                        @Html.LabelFor(x => x.Password, new { type = "password" })
+                        @Html.ValidationMessageFor(x => x.Password)
+                    </div>
+                    <button type="submit" class="button buttonBlue">
+                        Giriş Yap
+                        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                    </button>
+                    }
+                </div>
         <!-- End / Content-->
         <!-- footer -->
         @{

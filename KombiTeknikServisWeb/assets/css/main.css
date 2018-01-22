@@ -2839,7 +2839,7 @@ mark, .mark {
 
 .post-02__body {
     padding: 20px 30px;
-    border: 1px solid #ebebeb;
+    /*border: 1px solid #ebebeb;*/
     border-top: none;
 }
 

@@ -343,7 +343,6 @@
     <Content Include="Views\Home\ComingSoon.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Shared\_PartialLogin.cshtml" />
     <Content Include="scss\_auth.scss" />
     <Content Include="scss\_background.scss" />
     <Content Include="scss\_demo.scss" />
@@ -375,10 +374,8 @@
     <Content Include="scss\mixins\_cards.scss" />
     <Content Include="scss\mixins\_misc.scss" />
     <Content Include="scss\style.scss" />
-    <Content Include="Views\Shared\_PartialRegister.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Shared\_PartialForgotPassword.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\FaultReport.cshtml" />
     <Content Include="Views\Shared\_PartialFaultReport.cshtml" />

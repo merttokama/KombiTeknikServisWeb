@@ -1,4 +1,8 @@
-﻿@{
+﻿@model Entity.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -54,8 +58,47 @@
                 </div>
             </div>
             <!-- End / page-title -->
-            @{
-                Html.RenderAction("RegisterResult", "Account");
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="group">
+                    <span class="text-danger">@Html.ValidationSummary()</span>
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.Username, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                   @Html.LabelFor(x => x.Username, new { type = "text" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.Name, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.LabelFor(x => x.Name, new { type = "text" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.Surname, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.LabelFor(x => x.Surname, new { type = "text" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "number" })<span class="highlight"></span><span class="bar"></span>
+                    <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
+                    @Html.LabelFor(x => x.PhoneNumber, new { type = "number" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.Email, new { type = "email" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.LabelFor(x => x.Email, new { type = "email" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.Password, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.LabelFor(x => x.Password, new { type = "password" })
+                </div>
+                <div class="group">
+                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                    <span class="text-danger">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span>
+                    @Html.LabelFor(x => x.ConfirmPassword, new { type = "password" })
+                </div>
+                <button type="submit" class="button buttonBlue">
+                    Kaydol
+                    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                </button>
             }
         </div>
         <!-- End / Content-->
@@ -65,24 +108,24 @@
         }
         <!-- End / footer -->
     </div>
-        <!-- Vendors-->
-        <script type="text/javascript" src="~/assets/vendors/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/owl.carousel/owl.carousel.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/menu/menu.min.js"></script>
-        <script type="text/javascript" src="~/assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
-        <script src="~/form css and js/frm.js"></script>
-        <!-- App-->
-        <script type="text/javascript" src="~/assets/js/main.js"></script>
+    <!-- Vendors-->
+    <script type="text/javascript" src="~/assets/vendors/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/owl.carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/menu/menu.min.js"></script>
+    <script type="text/javascript" src="~/assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
+    <script src="~/form css and js/frm.js"></script>
+    <!-- App-->
+    <script type="text/javascript" src="~/assets/js/main.js"></script>
 
 </body>
 </html>
