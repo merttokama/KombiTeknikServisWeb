@@ -331,7 +331,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_PartialHeader.cshtml" />
     <Content Include="Views\Shared\_PartialSlider.cshtml" />
     <Content Include="Views\Shared\_PartialSectionService.cshtml" />
     <Content Include="Views\Shared\_PartialSectionContactUs.cshtml" />
@@ -379,6 +378,10 @@
     <Content Include="Views\Home\FaultReport.cshtml" />
     <Content Include="Views\Home\ServiceAreas.cshtml" />
     <Content Include="Views\Account\RecoverPassword.cshtml" />
+    <Content Include="Views\Shared\_PartialLiLoYes.cshtml" />
+    <Content Include="Views\Shared\_PartialLiLoNo.cshtml" />
+    <Content Include="Views\Shared\_PartialHeader.cshtml" />
+    <Content Include="Views\Account\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

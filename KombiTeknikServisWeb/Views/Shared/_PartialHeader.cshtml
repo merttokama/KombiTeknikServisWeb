@@ -1,5 +1,5 @@
-﻿@model string[]
-<header class="header header__style-02">
+﻿<header class="header header__style-02">
+
     <div class="container">
         <div class="header__logo"><a href="@Url.Action("Index","Home")"><img src="~/assets/img/logo.png" alt="" /></a></div>
         <div class="header__toogleGroup">
@@ -15,35 +15,27 @@
                         </ul>
                     </div>
                 </div><!-- End / dropdown -->
-
             </div>
-            <div class="search-form">
-                <div class="search-form__toggle"><i class="ti-search"></i></div>
-                <div class="search-form__form">
+            <div><!--Search Area--><div>
 
                     <!-- form-search -->
-                    <div class="form-search">
-                        <form >
-                            <input class="form-control" type="text" placeholder="Aranacak Kelimeyi Giriniz..." />
-                        </form>
-                    </div><!-- End / form-search -->
+<!-- End / form-search -->
 
                 </div>
             </div>
         </div>
-
         <!-- consult-nav -->
         <nav class="consult-nav">
 
             <!-- consult-menu -->
             <ul class="consult-menu">
-                <li class="@Html.Raw(Model[0])">
+                <li class="@Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[0])">
                     <a href="@Url.Action("Index","Home")">AnaSayfa</a>
                 </li>
-                <li class="@Html.Raw(Model[1])">
+                <li class="@Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[1])">
                     <a href="@Url.Action("About","Home")">hakkında</a>
                 </li>
-                <li class="menu-item-has-children @Html.Raw(Model[2])">
+                <li class="menu-item-has-children @Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[2])">
                     <a href="#">cihaz takip</a>
                     <ul class="sub-menu">
                         <li>
@@ -54,25 +46,26 @@
                         </li>
                     </ul>
                 </li>
-                <li class="@Html.Raw(Model[3])">
+                <li class="@Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[3])">
                     <a href="@Url.Action("ServiceAreas","Home")">Servis Bölgelerimiz</a>
                 </li>
-                <li class="@Html.Raw(Model[4])">
+                <li class="@Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[4])">
                     <a href="@Url.Action("Contact","Home")">iletişim</a>
                 </li>
-                <li class="menu-item-has-children @Html.Raw(Model[5])">
-                    <a href="#">Üye İşlemleri</a>
-                    <ul class="sub-menu">
-                        <li >
-                            <a href="@Url.Action("Login","Account")">Giriş Yap</a>
-                        </li>
-                        <li >
-                            <a href="@Url.Action("Register","Account")">Kayıt Ol</a>
-                        </li>
-                        <li >
-                            <a href="@Url.Action("RecoverPassword","Account")">Şifremi Unuttum</a>
-                        </li>
-                    </ul>
+
+                <li class="menu-item-has-children @Html.Raw(KombiTeknikServisWeb.Controllers.HomeController.dizi[5])">
+                    @{
+                        if (HttpContext.Current.User.Identity.IsAuthenticated)
+                        {
+                            Html.RenderAction("LiLoYesResult", "Home");
+
+                        }
+                        else
+                        {
+                            Html.RenderAction("LiLoNoResult", "Home");
+
+                        }
+                    }
                 </li>
             </ul><!-- consult-menu -->
 

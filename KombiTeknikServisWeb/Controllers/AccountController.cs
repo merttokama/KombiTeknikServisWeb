@@ -17,6 +17,10 @@ namespace KombiTeknikServisWeb.Controllers
     {
         public ActionResult Register()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             HomeController.SecilenMenu(5);
             return View();
         }

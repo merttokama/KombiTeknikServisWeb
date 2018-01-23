@@ -67,11 +67,6 @@ namespace KombiTeknikServisWeb.Controllers
         }
         #region Partials
 
-        public PartialViewResult HeaderResult()
-        {
-            
-            return PartialView("_PartialHeader",dizi);
-        }
         public PartialViewResult SliderResult()
         {
 
@@ -113,6 +108,21 @@ namespace KombiTeknikServisWeb.Controllers
             return PartialView("_PartialSectionComingSoon");
         }
 
+        public PartialViewResult LiLoYesResult()
+        {
+            return PartialView("_PartialLiLoYes");
+        }
+
+        public PartialViewResult LiLoNoResult()
+        {
+            return PartialView("_PartialLiLoNo");
+        }
+
+        public PartialViewResult HeaderResult()
+        {
+            return PartialView("_PartialHeader");
+        }
+        
         #endregion
 
     }

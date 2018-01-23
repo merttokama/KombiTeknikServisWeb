@@ -37,9 +37,13 @@
 </head>
 <body>
     <div class="page-wrap">
+        <!--HEADER-->
+
         @{
             Html.RenderAction("HeaderResult", "Home");
         }
+
+        <!--HEADER END-->
         <div class="md-content">
             <!-- page-title -->
             <div class="page-title">
@@ -78,7 +82,7 @@
                 <div class="group">
                     Telefon *
                     <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
-                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "number" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
 
                 </div>
                 <div class="group">

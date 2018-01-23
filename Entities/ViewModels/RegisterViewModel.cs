@@ -26,7 +26,7 @@ namespace Entity.ViewModels
         [Display(Name = "Şifre")]
         [DataType(DataType.Password)]
         [RegularExpression(@"^[a-zA-Z]\w{4,14}$", ErrorMessage = @"	
-The password's first character must be a letter, it must contain at least 5 characters and no more than 15 characters and no characters other than letters, numbers and the underscore may be used")]
+Parolanın ilk karakteri bir harf olmalıdır, en az 5 karakter içermeli ve en fazla 15 karakter içermelidir ve harfler, rakamlar ve altçizgi dışındaki karakterler kullanılmamalıdır.")]
         public string Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
@@ -36,7 +36,7 @@ The password's first character must be a letter, it must contain at least 5 char
         [Required]
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Telefon Numarası")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Girilen telefon formatı geçerli değil.")]
         public string PhoneNumber { get; set; }
     }
 }
