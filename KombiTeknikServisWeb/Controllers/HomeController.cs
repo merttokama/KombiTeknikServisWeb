@@ -113,11 +113,6 @@ namespace KombiTeknikServisWeb.Controllers
             return PartialView("_PartialSectionComingSoon");
         }
 
-        public PartialViewResult FaultReportResult()
-        {
-            return PartialView("_PartialFaultReport");
-        }
-
         #endregion
 
     }

@@ -28,29 +28,6 @@ namespace KombiTeknikServisWeb.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
-            var userManager = MembershipTools.NewUserManager();
-            var user = await userManager.FindAsync(model.Email, model.EmailAgain);
-            if (user == null)
-            {
-                ModelState.AddModelError(string.Empty, "Böyle bir email bulunamadı");
-                return View(model);
-            }
-            var YourPassword = user.Email;
-                await SiteSettings.SendMail(new MailModel()
-                {
-                    To = user.Email,
-                    Subject = "TeknikServisDB - Aktivasyon",
-                    Message = $"Merhaba {user.Name} {user.Surname} <br/>Yeni Şifreniz = <b>{YourPassword}</b></br> Hayırlı Olsun."
-                });
-                return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -269,6 +246,7 @@ namespace KombiTeknikServisWeb.Controllers
                 }
                 var randomPass = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 6);
                 await userStore.SetPasswordHashAsync(sonuc, userManager.PasswordHasher.HashPassword(randomPass));
+                await userStore.UpdateAsync(sonuc);
                 await SiteSettings.SendMail(new MailModel()
                 {
                     To = sonuc.Email,

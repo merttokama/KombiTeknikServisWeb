@@ -61,16 +61,14 @@
             @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.AntiForgeryToken()
-                <div class="group">
-                    <span class="text-danger">@Html.ValidationSummary()</span>
-                </div>
                     <div class="group">
-                        @Html.TextBoxFor(x => x.Username, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
-                        @Html.LabelFor(x => x.Username, new { type = "text" })
+                        <span class="text-danger">@Html.ValidationSummary()</span>
+                        Kullanıcı Adı
+                        @Html.TextBoxFor(x => x.Username, new { type = "text"})<span class="highlight"></span><span class="bar"></span>
                     </div>
                     <div class="group">
-                        @Html.TextBoxFor(x => x.Password, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
-                        @Html.LabelFor(x => x.Password, new { type = "password" })
+                        Şifre
+                        @Html.TextBoxFor(x => x.Password, new { type = "password"})<span class="highlight"></span><span class="bar"></span>
                         @Html.ValidationMessageFor(x => x.Password)
                     </div>
                     <button type="submit" class="button buttonBlue">

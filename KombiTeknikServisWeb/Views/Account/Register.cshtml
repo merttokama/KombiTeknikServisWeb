@@ -64,36 +64,35 @@
                 @Html.AntiForgeryToken()
                 <div class="group">
                     <span class="text-danger">@Html.ValidationSummary()</span>
-                </div>
-                <div class="group">
+                    Kullanıcı Adı *
                     @Html.TextBoxFor(x => x.Username, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
-                   @Html.LabelFor(x => x.Username, new { type = "text" })
                 </div>
                 <div class="group">
+                    Ad *
                     @Html.TextBoxFor(x => x.Name, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
-                    @Html.LabelFor(x => x.Name, new { type = "text" })
                 </div>
                 <div class="group">
+                    Soyad *
                     @Html.TextBoxFor(x => x.Surname, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
-                    @Html.LabelFor(x => x.Surname, new { type = "text" })
                 </div>
                 <div class="group">
-                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "number" })<span class="highlight"></span><span class="bar"></span>
+                    Telefon *
                     <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
-                    @Html.LabelFor(x => x.PhoneNumber, new { type = "number" })
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "number" })<span class="highlight"></span><span class="bar"></span>
+
                 </div>
                 <div class="group">
+                    Email *
                     @Html.TextBoxFor(x => x.Email, new { type = "email" })<span class="highlight"></span><span class="bar"></span>
-                    @Html.LabelFor(x => x.Email, new { type = "email" })
                 </div>
                 <div class="group">
+                    Şifre *
                     @Html.TextBoxFor(x => x.Password, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
-                    @Html.LabelFor(x => x.Password, new { type = "password" })
                 </div>
                 <div class="group">
-                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                    Şire Tekrar *
                     <span class="text-danger">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span>
-                    @Html.LabelFor(x => x.ConfirmPassword, new { type = "password" })
+                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <button type="submit" class="button buttonBlue">
                     Kaydol

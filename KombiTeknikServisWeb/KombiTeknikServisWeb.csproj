@@ -375,11 +375,10 @@
     <Content Include="scss\mixins\_misc.scss" />
     <Content Include="scss\style.scss" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\FaultReport.cshtml" />
-    <Content Include="Views\Shared\_PartialFaultReport.cshtml" />
     <Content Include="Views\Home\ServiceAreas.cshtml" />
+    <Content Include="Views\Account\RecoverPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

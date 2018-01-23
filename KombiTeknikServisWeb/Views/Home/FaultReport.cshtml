@@ -53,10 +53,27 @@
                 </div>
             </div>
             <!-- End / page-title -->
-            @{
-                Html.RenderAction("FaultReportResult", "Home");
-            }
+
+            <form>
+                <div class="group">
+                    Adres
+                    <input type="text"><span class="highlight"></span><span class="bar"></span>
+                </div>
+                <div class="group">
+                    Açıklama
+                    <input type="text"><span class="highlight"></span><span class="bar"></span>
+                </div>
+                <div class="group">
+                    <h5>Arızayı Anlatan Fotoğraf Ekleyiniz</h5>
+                    <input multiple type="file" name="fileToUpload" id="fileToUpload" accept="image/x-png,image/gif,image/jpeg">
+                </div>
+                <button type="submit" class="button buttonBlue">
+                    Arıza Bildir
+                    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                </button>
+            </form>
         </div>
+
         <!-- End / Content-->
         <!-- footer -->
         @{
