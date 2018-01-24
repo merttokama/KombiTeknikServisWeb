@@ -230,6 +230,7 @@
     <Content Include="fonts\PT_Sans\OFL.txt" />
     <Content Include="form css and js\frm.css" />
     <Content Include="form css and js\frm.js" />
+    <Content Include="form css and js\jquery-3.3.1.min.js" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="images\dashboard\img_1.jpg" />
@@ -290,6 +291,11 @@
     <Content Include="partials\_footer.html" />
     <Content Include="partials\_navbar.html" />
     <Content Include="partials\_sidebar.html" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +388,8 @@
     <Content Include="Views\Shared\_PartialLiLoNo.cshtml" />
     <Content Include="Views\Shared\_PartialHeader.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

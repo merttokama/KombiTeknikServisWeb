@@ -1,10 +1,14 @@
-﻿using BLL.Repository;
+﻿using BLL.Account;
+using BLL.Repository;
+using Entities.Models;
+using Entities.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static BLL.Repository.MessageRepo;
 
 namespace KombiTeknikServisWeb.Controllers
 {
@@ -20,7 +24,7 @@ namespace KombiTeknikServisWeb.Controllers
         {
             return View();
         }
-        
+
         public ActionResult About()
         {
             SecilenMenu(1);
@@ -31,9 +35,42 @@ namespace KombiTeknikServisWeb.Controllers
             SecilenMenu(4);
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult FaultReport(FaultReportsViewModel model)
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var userManager = MembershipTools.NewUserManager();
+            var user = userManager.FindById(HttpContext.User.Identity.GetUserId());
+            SecilenMenu(2);
+            var ariza = new FaultReports()
+            {
+                Address = model.Address,
+                Description = model.Description,
+                LocationX = model.LocationX,
+                LocationY = model.LocationY,
+                UserID = user.Id
+            };
+            try
+            {
+                new FaultReportsRepo().Insert(ariza);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+            return View();
+        }
         public ActionResult FaultReport()
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             SecilenMenu(2);
             return View();
         }
@@ -47,9 +84,9 @@ namespace KombiTeknikServisWeb.Controllers
         public static string[] dizi = new string[6];
         public static void SecilenMenu(int secilen)
         {
-            for (int i=0;i<dizi.Length;i++)
+            for (int i = 0; i < dizi.Length; i++)
             {
-                if (i==secilen)
+                if (i == secilen)
                 {
                     dizi[secilen] = "current-menu-item";
                 }
@@ -122,7 +159,7 @@ namespace KombiTeknikServisWeb.Controllers
         {
             return PartialView("_PartialHeader");
         }
-        
+
         #endregion
 
     }

@@ -1,6 +1,10 @@
 ﻿* {
     box-sizing: border-box;
 }
+#map {
+    height: 300px;
+    width: 100%;
+}
 
 body {
     font-family: Helvetica;

@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BLL\\Account",
+    "\\Entities",
+    "\\KombiTeknikServisWeb",
+    "\\KombiTeknikServisWeb\\Views",
+    "\\KombiTeknikServisWeb\\Views\\Account"
   ],
+  "SelectedNode": "\\KombiTeknikServisWeb\\Views\\Account\\Register.cshtml",
   "PreviewInSolutionExplorer": false
 }

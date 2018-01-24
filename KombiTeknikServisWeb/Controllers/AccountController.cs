@@ -226,8 +226,6 @@ namespace KombiTeknikServisWeb.Controllers
                 ViewBag.sonuc = "Güncelleştirme işleminde bir hata oluştu. " + ex.Message;
                 throw;
             }
-
-            return View();
         }
 
         public ActionResult RecoverPassword()

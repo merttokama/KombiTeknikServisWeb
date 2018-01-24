@@ -25,6 +25,5 @@ namespace DAL
         public virtual DbSet<FaultReports> FaultReports { get; set; }
         public virtual DbSet<FaultReportConfirmation> FaultReportConfirmation { get; set; }
         public virtual DbSet<Images> Images { get; set; }
-        public virtual DbSet<Branches> Branches { get; set; }
     }
 }

@@ -16,7 +16,9 @@ namespace Entities.Models
         public string ID { get; set; }
         public string UserID { get; set; }
         [Required]
-        public string Location { get; set; }
+        public string LocationX { get; set; }
+        [Required]
+        public string LocationY { get; set; }
         [Required]
         [StringLength(250)]
         public string Address { get; set; }
@@ -31,5 +33,6 @@ namespace Entities.Models
 
         public virtual List<Works> Works { get; set; } = new List<Works>();
         public virtual List<Images> Images { get; set; } = new List<Images>();
+        public virtual List<FaultReportConfirmation> FaultReportConfirmation { get; set; } = new List<FaultReportConfirmation>();
     }
 }

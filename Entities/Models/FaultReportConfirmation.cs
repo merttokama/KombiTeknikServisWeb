@@ -16,6 +16,8 @@ namespace Entities.Models
         public string ID { get; set; }
         public string OperationID { get; set; }
         [Required]
+        public string FaultReportID { get; set; }
+        [Required]
         public bool Approved { get; set; } = false;
         [Required]
         [StringLength(250)]
@@ -23,5 +25,8 @@ namespace Entities.Models
 
         [ForeignKey("OperationID")]
         public virtual ApplicationUser OperationId { get; set; }
+
+        [ForeignKey("FaultReportID")]
+        public virtual ApplicationUser FaultReportId { get; set; }
     }
 }
