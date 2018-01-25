@@ -15,3 +15,10 @@ C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\bin\Micr
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.csprojResolveAssemblyReference.cache
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.dll
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisMVC\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.dll.config
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\TemplateAdminPanel.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.pdb

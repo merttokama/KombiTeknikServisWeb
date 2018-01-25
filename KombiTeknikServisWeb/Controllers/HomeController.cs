@@ -121,6 +121,7 @@ namespace KombiTeknikServisWeb.Controllers
             var model = new MessageRepo().Queryable().Where(x => x.SendBy == HttpContext.User.Identity.GetUserId()).ToList();
             return View(model);
         }
+
         #region Partials
 
         public PartialViewResult SliderResult()

@@ -59,35 +59,44 @@
                 </div>
             </div>
             <!-- End / page-title -->
-
-            @using (Html.BeginForm("FaultReport", "Home", FormMethod.Post))
+            <div class="row">
+                <div class="col-lg-2  col-sm-0 col-md-0 col-lg-2 "></div>
+                <div class="col-lg-4  col-sm-6 col-md-6 col-lg-4 ">
+                    @using (Html.BeginForm("FaultReport", "Home", FormMethod.Post))
             {
-                @Html.AntiForgeryToken()
-                @Html.HiddenFor(x => x.LocationX, new { id = "lat" })
-                @Html.HiddenFor(x => x.LocationY, new { id = "long" })
-                <div class="group">
-                    <div class="group">
-                        Ev Adresiniz
-                        @Html.TextBoxFor(x => x.Address)<span class="highlight"></span><span class="bar"></span>
-                    </div>
-                    <div class="group">
-                        Arıza Açıklaması
-                        @Html.TextBoxFor(x => x.Description)<span class="highlight"></span><span class="bar"></span>
-                    </div>
-                </div>
-                <div class="group">
-                    <div class="group">
-                        Konumunuzu Seçiniz
-                        <div>
-                            <div class="panel panel-default" id="map" style="height:300px;"></div>
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(x => x.LocationX, new { id = "lat" })
+                        @Html.HiddenFor(x => x.LocationY, new { id = "long" })
+                        <div class="group">
+                            <div class="group">
+                                <b>Ev Adresinizi Giriniz:</b>
+                                @Html.TextBoxFor(x => x.Address)<span class="highlight"></span><span class="bar"></span>
+                            </div>
+                            <div class="group">
+                                <b>Arıza Sebebini Açıklayınız:</b>
+                                @Html.TextAreaFor(x => x.Description)<span class="highlight"></span><span class="bar"></span>
+                            </div>
                         </div>
-                    </div>
+                        <div class="group">
+                        </div>
+                        <button type="submit" class="button buttonBlue">
+                            Arıza Bildir
+                            <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+                        </button>
+                    }
                 </div>
-                <button type="submit" class="button buttonBlue">
-                    Arıza Bildir
-                    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-                </button>
-            }
+                <div class="col-lg-4 col-sm-6 col-md-6 col-lg-4 ">
+                    <form>
+                        <div class="group">
+                            <b>Konumunuzu Seçiniz:</b>
+                            <div>
+                                <div class="panel panel-default" id="map" style="height:200px;"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2  col-sm-0 col-md-0 col-lg-2 "></div>
+            </div>
         </div>
 
         <!-- End / Content-->

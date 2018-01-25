@@ -134,3 +134,4 @@ C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Entities\bin\Debug\Microsof
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Entities\bin\Debug\Newtonsoft.Json.xml
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Entities\obj\Debug\Entities.dll
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Entities\obj\Debug\Entities.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Entities\obj\Debug\Entity.csprojResolveAssemblyReference.cache
