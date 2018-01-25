@@ -24,3 +24,10 @@ C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.c
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.csproj.CoreCompileInputs.cache
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.dll
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.pdb
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\bin\Template.dll.config
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\bin\Template.dll
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\bin\Template.pdb
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\obj\Debug\Template.dll
+C:\Users\mertt\Source\repos\KombiTeknikServisWeb\Template\obj\Debug\Template.pdb

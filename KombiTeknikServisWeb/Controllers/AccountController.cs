@@ -53,7 +53,8 @@ namespace KombiTeknikServisWeb.Controllers
                 Surname = model.Surname,
                 Email = model.Email,
                 UserName = model.Username,
-                ActivationCode = activationCode
+                ActivationCode = activationCode,
+                PhoneNumber = model.PhoneNumber
             };
 
             var sonuc = userManager.Create(user, model.Password);
@@ -140,7 +141,7 @@ namespace KombiTeknikServisWeb.Controllers
         public ActionResult Logout()
         {
             HttpContext.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("BasariliIslem", "Home");
         }
         [Authorize]
         public new ActionResult Profile()
@@ -152,7 +153,9 @@ namespace KombiTeknikServisWeb.Controllers
                 Email = user.Email,
                 Name = user.Name,
                 Surname = user.Surname,
-                Username = user.UserName
+                Username = user.UserName,
+                PhoneNumber = user.PhoneNumber,
+                RegisterDate = user.RegisterDate
             };
             return View(model);
         }
@@ -172,6 +175,7 @@ namespace KombiTeknikServisWeb.Controllers
                 user.Name = model.Name;
                 user.Surname = model.Surname;
                 user.Email = model.Email;
+                user.PhoneNumber = model.PhoneNumber;
                 await userStore.UpdateAsync(user);
                 await userStore.Context.SaveChangesAsync();
 
@@ -182,9 +186,11 @@ namespace KombiTeknikServisWeb.Controllers
                     Email = user.Email,
                     Name = user.Name,
                     Surname = user.Surname,
-                    Username = user.UserName
+                    Username = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    RegisterDate = user.RegisterDate
                 };
-                return View(model2);
+                return RedirectToAction("BasariliIslem", "Home"); 
             }
             catch (Exception ex)
             {

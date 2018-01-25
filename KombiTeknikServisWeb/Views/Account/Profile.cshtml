@@ -1,11 +1,11 @@
-﻿@model Entities.ViewModels.FaultReportsViewModel
+﻿@model Entity.ViewModels.ProfileViewModel
 @{
     Layout = null;
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Arıza Bildir</title>
+    <title>Profil</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -47,11 +47,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
-                            <h2 class="page-title__title" style="color: #f39c12;">Arıza Bildir</h2>
+                            <h2 class="page-title__title" style="color: #f39c12;">Profil Bilgileri</h2>
 
                             <!--  -->
                             <nav>
-                                <a class="breadcrumb__item" href="@Url.Action("Index","Home")">Home</a><span class="breadcrumb__item active">FaultReport</span>
+                                <a class="breadcrumb__item" href="@Url.Action("Index","Home")">Home</a><span class="breadcrumb__item active">Profile</span>
                             </nav><!-- End /  -->
 
                         </div>
@@ -60,29 +60,40 @@
             </div>
             <!-- End / page-title -->
             <div class="row">
-                @using (Html.BeginForm("FaultReport", "Home", FormMethod.Post))
-            {
+                @using (Html.BeginForm("Profile", "Account", FormMethod.Post))
+                {
                     @Html.AntiForgeryToken()
-                    @Html.HiddenFor(x => x.LocationX, new { id = "lat" })
-                    @Html.HiddenFor(x => x.LocationY, new { id = "long" })
                     <div class="group">
-                        <div class="group">
-                            <b>Ev Adresinizi Giriniz:</b>
-                            @Html.TextBoxFor(x => x.Address)<span class="highlight"></span><span class="bar"></span>
-                        </div>
-                        <div class="group">
-                            <b>Arıza Sebebini Açıklayınız:</b>
-                            @Html.TextAreaFor(x => x.Description)<span class="highlight"></span><span class="bar"></span>
-                        </div>
+                        <span class="text-danger">@Html.ValidationSummary()</span>
+                    </div>
+                    <div class="group">
+                        <b>Kullanıcı Adı:  </b>
+                        @Html.DisplayTextFor(x => x.Username)<span class="highlight"></span><span class="bar"></span>
+                        @Html.HiddenFor(x => x.Username)
+                    </div>
+                    <div class="group">
+                        <b>Adı</b>
+                        @Html.TextBoxFor(x => x.Name)<span class="highlight"></span><span class="bar"></span>
                     </div>
                         <div class="group">
-                            <b>Konumunuzu Seçiniz:</b>
-                            <div>
-                                <div class="panel panel-default" id="map" style="height:300px;"></div>
-                            </div>
+                            <b>Soyadı</b>
+                            @Html.TextBoxFor(x => x.Surname)<span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <div class="group">
+                            <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
+                            <b>Telefon Numarası</b>
+                            @Html.TextBoxFor(x => x.PhoneNumber)<span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <div class="group">
+                            <b>Email Adresi</b>
+                            @Html.TextBoxFor(x => x.Email)<span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <div class="group">
+                            <b>Kayıt Tarihi:  </b>
+                            @Html.DisplayTextFor(x => x.RegisterDate)<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <button type="submit" class="button buttonBlue">
-                            Arıza Bildir
+                            Profili Güncelle
                             <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
                         </button>
                 }

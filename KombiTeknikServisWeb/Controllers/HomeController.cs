@@ -21,6 +21,10 @@ namespace KombiTeknikServisWeb.Controllers
             SecilenMenu(0);
             return View();
         }
+        public ActionResult BasariliIslem()
+        {
+            return View();
+        }
 
         public ActionResult ComingSoon()
         {
@@ -37,14 +41,15 @@ namespace KombiTeknikServisWeb.Controllers
             SecilenMenu(4);
             return View();
         }
+        public ActionResult SayfaGirisYetkisi()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult FaultReport(FaultReportsViewModel model)
         {
-            if (!HttpContext.User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
             var userManager = MembershipTools.NewUserManager();
             var user = userManager.FindById(HttpContext.User.Identity.GetUserId());
             SecilenMenu(2);
@@ -72,23 +77,18 @@ namespace KombiTeknikServisWeb.Controllers
                     }
                     Response.End();
                 }
-
             }
-            catch (DbUpdateException ex)
-            {
-                Response.Write(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
-            }
-            return View();
+            return RedirectToAction("BasariliIslem", "Home");
         }
         public ActionResult FaultReport()
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("SayfaGirisYetkisi", "Home");
+            }
+            if (HttpContext.User.IsInRole("Passive"))
+            {
+                return RedirectToAction("SayfaGirisYetkisi", "Home");
             }
             SecilenMenu(2);
             return View();
