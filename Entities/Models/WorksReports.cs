@@ -13,14 +13,15 @@ namespace Entities.Models
     public class WorksReports
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         [Required]
-        public string WorkID { get; set; } 
+        public int WorkID { get; set; } 
         [Required]
         [StringLength(250)]
         public string Report { get; set; }
 
         [ForeignKey("WorkID")]
-        public virtual Works WorkId { get; set; }
+        public virtual Works Works { get; set; }
+      
     }
 }

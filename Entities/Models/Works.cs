@@ -13,20 +13,20 @@ namespace Entities.Models
     public class Works
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         [Required]
-        public string FaultReportID { get; set; }
+        public int FaultReportID { get; set; }
         [Required]
-        public string TechnicionID { get; set; }
+        public int TechnicionID { get; set; }
         [Required]
         public bool FaultIsResolved { get; set; } = false;
         [Required]
         public DateTime CompletionDate { get; set; } = new DateTime(01,01,01);
 
         [ForeignKey("TechnicionID")]
-        public virtual Technicions TechnicionsId { get; set; }
+        public virtual Technicions Technicions { get; set; }
         [ForeignKey("FaultReportID")]
-        public virtual FaultReports FaultReportsId { get; set; }
+        public virtual FaultReports FaultReports { get; set; }
         public virtual List<WorksReports> WorksReports { get; set; } = new List<WorksReports>();
 
     }

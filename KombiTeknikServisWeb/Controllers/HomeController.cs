@@ -5,10 +5,12 @@ using Entities.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using static BLL.Repository.MessageRepo;
 
 namespace KombiTeknikServisWeb.Controllers
 {
@@ -58,11 +60,28 @@ namespace KombiTeknikServisWeb.Controllers
             {
                 new FaultReportsRepo().Insert(ariza);
             }
+            catch (DbEntityValidationException e)
+            {
+
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Response.Write(string.Format("Entity türü \"{0}\" şu hatalara sahip \"{1}\" Geçerlilik hataları:", eve.Entry.Entity.GetType().Name, eve.Entry.State));
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Response.Write(string.Format("- Özellik: \"{0}\", Hata: \"{1}\"", ve.PropertyName, ve.ErrorMessage));
+                    }
+                    Response.End();
+                }
+
+            }
+            catch (DbUpdateException ex)
+            {
+                Response.Write(ex.Message);
+            }
             catch (Exception ex)
             {
-                throw ex;
+                Response.Write(ex.Message);
             }
-
             return View();
         }
         public ActionResult FaultReport()

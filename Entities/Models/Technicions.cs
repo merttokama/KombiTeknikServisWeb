@@ -13,13 +13,13 @@ namespace Entities.Models
     public class Technicions
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string UserID { get; set; }
         [Required]
         public bool Appropriate { get; set; } = true;
 
         [ForeignKey("UserID")]
-        public virtual ApplicationUser TechnicionsUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public virtual List<Works> Works { get; set; } = new List<Works>();
     }

@@ -68,9 +68,9 @@ namespace BLL.Repository
                 dbContext.Set<T>().Add(entity);
                 return dbContext.SaveChanges();
             }
-            catch (Exception ex)
+            catch 
             {
-                throw ex;
+                throw;
             }
         }
         public async virtual Task<int> InsertAsync(T entity)

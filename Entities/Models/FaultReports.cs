@@ -13,7 +13,7 @@ namespace Entities.Models
     public class FaultReports
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string UserID { get; set; }
         [Required]
         public string LocationX { get; set; }
@@ -25,12 +25,14 @@ namespace Entities.Models
         [Required]
         [StringLength(250)]
         public string Description { get; set; }
-        [Required]
         public DateTime FaultReportDate { get; set; } = DateTime.Now;
 
-        [ForeignKey("UserID")]
-        public virtual ApplicationUser FaultReportsUserId { get; set; }
 
+
+
+
+        [ForeignKey("UserID")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual List<Works> Works { get; set; } = new List<Works>();
         public virtual List<Images> Images { get; set; } = new List<Images>();
         public virtual List<FaultReportConfirmation> FaultReportConfirmation { get; set; } = new List<FaultReportConfirmation>();

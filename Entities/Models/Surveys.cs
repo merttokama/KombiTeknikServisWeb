@@ -13,7 +13,7 @@ namespace Entities.Models
     public class Surveys
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string UserID { get; set; }
         [Required]
         public int Question1 { get; set; }
@@ -31,7 +31,7 @@ namespace Entities.Models
         public int Score { get; set; } = 0;
 
         [ForeignKey("UserID")]
-        public virtual ApplicationUser SurveysUserId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }

@@ -24,6 +24,5 @@ namespace Entity.IdentityModels
         public virtual List<FaultReports> FaultReports { get; set; } = new List<FaultReports>();
 
         public virtual List<Technicions> Technicions { get; set; } = new List<Technicions>();
-        public virtual List<FaultReportConfirmation> FaultReportConfirmation { get; set; } = new List<FaultReportConfirmation>();
     }
 }

@@ -9,7 +9,6 @@ namespace Entities.ViewModels
 {
     public class FaultReportsViewModel
     {
-        [Required]
         public string UserID { get; set; }
         [Required]
         public string LocationX { get; set; }
@@ -23,12 +22,8 @@ namespace Entities.ViewModels
         [StringLength(250)]
         [Display(Name = "Arıza Açıklaması")]
         public string Description { get; set; }
-
-
         [Required]
-        public string FaultReportsID { get; set; }
-        [Required]
-        [Display(Name = "Arızayı Açıklayan Fotoğraf")]
-        public byte Image { get; set; }
+        public DateTime FaultReportDate { get; set; } = DateTime.Now;
+
     }
 }

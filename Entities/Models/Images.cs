@@ -12,13 +12,13 @@ namespace Entities.Models
     public class Images
     {
         [Key]
-        public string ID { get; set; }
+        public int ID { get; set; }
         [Required]
-        public string FaultReportsID { get; set; }
+        public int FaultReportsID { get; set; }
         [Required]
         public byte Image { get; set; }
 
         [ForeignKey("FaultReportsID")]
-        public virtual FaultReports FaultReportsId { get; set; }
+        public virtual FaultReports FaultReports { get; set; }
     }
 }

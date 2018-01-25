@@ -13,20 +13,16 @@ namespace Entities.Models
     public class FaultReportConfirmation
     {
         [Key]
-        public string ID { get; set; }
-        public string OperationID { get; set; }
+        public int ID { get; set; }
         [Required]
-        public string FaultReportID { get; set; }
+        public int FaultReportID { get; set; }
         [Required]
         public bool Approved { get; set; } = false;
         [Required]
         [StringLength(250)]
         public string Message { get; set; }
 
-        [ForeignKey("OperationID")]
-        public virtual ApplicationUser OperationId { get; set; }
-
         [ForeignKey("FaultReportID")]
-        public virtual ApplicationUser FaultReportId { get; set; }
+        public virtual FaultReports FaultReports { get; set; }
     }
 }
