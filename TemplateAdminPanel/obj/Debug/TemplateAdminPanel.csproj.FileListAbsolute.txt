@@ -22,3 +22,4 @@ C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\Micr
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.dll
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\TemplateAdminPanel\obj\Debug\TemplateAdminPanel.csprojResolveAssemblyReference.cache
