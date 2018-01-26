@@ -160,7 +160,8 @@ C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\bin\Debug\Newtonsoft.Js
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.dll
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.pdb
-C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a1.resources
-C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
 C:\Users\mertt\Source\repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a1.resources
 C:\Users\mertt\Source\repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a1.resources
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a2.resources

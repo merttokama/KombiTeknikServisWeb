@@ -60,23 +60,29 @@
             </div>
             <!-- End / page-title -->
             <div class="row">
-                @using (Html.BeginForm("FaultReport", "Home", FormMethod.Post))
-            {
+                @using (Html.BeginForm("FaultReport", "Home", FormMethod.Post, new
+                {
+                    enctype = "multipart/form-data"
+                }))
+                {
                     @Html.AntiForgeryToken()
                     @Html.HiddenFor(x => x.LocationX, new { id = "lat" })
                     @Html.HiddenFor(x => x.LocationY, new { id = "long" })
-                    <div class="group">
+                    <span class="text-danger">@Html.ValidationSummary()</span>
                         <div class="group">
-                            <b>Ev Adresinizi Giriniz:</b>
+                            <b>Ev Adresinizi Giriniz* :</b>
                             @Html.TextBoxFor(x => x.Address)<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
-                            <b>Arıza Sebebini Açıklayınız:</b>
+                            <b>Arıza Sebebini Açıklayınız* :</b>
                             @Html.TextAreaFor(x => x.Description)<span class="highlight"></span><span class="bar"></span>
                         </div>
-                    </div>
                         <div class="group">
-                            <b>Konumunuzu Seçiniz:</b>
+                            <b>Arızayı Anlatan Fotoğraf Ekleyiniz :</b>
+                            @Html.TextBoxFor(x => x.Images, new { type = "file", multiple = "multiple", accept = "image/*" })<span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <div class="group">
+                            <b>Konumunuzu Seçiniz* :</b>
                             <div>
                                 <div class="panel panel-default" id="map" style="height:300px;"></div>
                             </div>

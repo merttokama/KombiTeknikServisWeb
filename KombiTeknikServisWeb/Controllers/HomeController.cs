@@ -1,5 +1,6 @@
 ﻿using BLL.Account;
 using BLL.Repository;
+using BLL.Settings;
 using Entities.Models;
 using Entities.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -8,8 +9,10 @@ using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace KombiTeknikServisWeb.Controllers
@@ -65,20 +68,53 @@ namespace KombiTeknikServisWeb.Controllers
             {
                 new FaultReportsRepo().Insert(ariza);
             }
-            catch (DbEntityValidationException e)
+            catch (Exception ex)
             {
+                throw ex;
+            }
+            //------------------ IMAGE
 
-                foreach (var eve in e.EntityValidationErrors)
+            if (model.Images.Any())
+            {
+                foreach (var dosya in model.Images)
                 {
-                    Response.Write(string.Format("Entity türü \"{0}\" şu hatalara sahip \"{1}\" Geçerlilik hataları:", eve.Entry.Entity.GetType().Name, eve.Entry.State));
-                    foreach (var ve in eve.ValidationErrors)
+                    string fileName = Path.GetFileNameWithoutExtension(dosya.FileName);
+                    string extName = Path.GetExtension(dosya.FileName);
+                    fileName = SiteSettings.UrlFormatConverter(fileName);
+                    fileName += Guid.NewGuid().ToString().Replace("-", "");
+                    var directoryPath = Server.MapPath("~/Uploads/products");
+                    var filePath = Server.MapPath("~/Uploads/products/") + fileName + extName;
+                    if (!Directory.Exists(directoryPath))
+                        Directory.CreateDirectory(directoryPath);
+                    dosya.SaveAs(filePath);
+                    ResimBoyutlandir(400, 300, filePath);
+                    try
                     {
-                        Response.Write(string.Format("- Özellik: \"{0}\", Hata: \"{1}\"", ve.PropertyName, ve.ErrorMessage));
+                        new ImagesRepo().Insert(new Images()
+                        {
+                            DosyaYolu = @"/Uploads/products/" + fileName + extName,
+                            FaultReportsID = ariza.ID,
+                            Uzanti = extName.Substring(1)
+                        });
                     }
-                    Response.End();
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
             }
+
+            //------------------- IMAGE END
+
             return RedirectToAction("BasariliIslem", "Home");
+        }
+
+        public void ResimBoyutlandir(int en, int boy, string yol)
+        {
+            WebImage img = new WebImage(yol);
+            img.Resize(en, boy, false);
+            img.AddTextWatermark("Kombi Master", fontColor: "Tomato", fontSize: 18, fontFamily: "Verdana");
+            img.Save(yol);
         }
         public ActionResult FaultReport()
         {

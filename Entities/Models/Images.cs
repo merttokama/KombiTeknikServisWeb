@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Entities.Models
 {
@@ -15,8 +16,9 @@ namespace Entities.Models
         public int ID { get; set; }
         [Required]
         public int FaultReportsID { get; set; }
-        [Required]
-        public byte Image { get; set; }
+
+        public string DosyaYolu { get; set; }
+        public string Uzanti { get; set; }
 
         [ForeignKey("FaultReportsID")]
         public virtual FaultReports FaultReports { get; set; }
