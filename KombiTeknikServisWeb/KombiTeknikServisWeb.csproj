@@ -241,7 +241,7 @@
     <Content Include="images\faces-clipart\pic-2.png" />
     <Content Include="images\faces-clipart\pic-3.png" />
     <Content Include="images\faces-clipart\pic-4.png" />
-    <Content Include="images\faces\face1.jpg" />
+    <Content Include="images\faces\face111.jpg" />
     <Content Include="images\faces\face10.jpg" />
     <Content Include="images\faces\face11.jpg" />
     <Content Include="images\faces\face12.jpg" />
@@ -268,6 +268,7 @@
     <Content Include="images\faces\face7.jpg" />
     <Content Include="images\faces\face8.jpg" />
     <Content Include="images\faces\face9.jpg" />
+    <Content Include="images\faces\students.png" />
     <Content Include="images\favicon.png" />
     <Content Include="images\logo-mini.svg" />
     <Content Include="images\logo.svg" />
@@ -417,7 +418,6 @@
     <Content Include="fonts\PT_Sans\PTSans-Regular.woff" />
     <Content Include="fonts\PT_Sans\PTSans-Regular.woff2" />
     <Content Include="templateAP\package.json" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="templateAP\css\maps\style.css.map" />
     <Content Include="templateAP\fonts\PT_Sans\PTSans-Bold.eot" />
     <Content Include="templateAP\fonts\PT_Sans\PTSans-Bold.ttf" />
@@ -492,6 +492,8 @@
     <Content Include="scss\style.scss" />
     <Content Include="Views\Shared\_PartialAPHeader.cshtml" />
     <Content Include="Views\Shared\_PartialAPSidebar.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

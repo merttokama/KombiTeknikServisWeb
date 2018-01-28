@@ -92,6 +92,10 @@ namespace KombiTeknikServisWeb.Controllers
                 {
                     ViewBag.sonuc = "Sistemi kullanabilmeniz için eposta adresinizi aktifleştirmeniz gerekmektedir.";
                 }
+                if (HttpContext.User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
                 var url = ReturnUrl.Split('/');
                 // admin/kullaniciduzenle/5
                 // admin/kullanicilar

@@ -20,7 +20,7 @@ namespace Entities.Models
         public bool Approved { get; set; } = false;
         [Required]
         [StringLength(250)]
-        public string Message { get; set; }
+        public string Message { get; set; } = "Burada açıklama yapmalısınız.";
 
         [ForeignKey("FaultReportID")]
         public virtual FaultReports FaultReports { get; set; }

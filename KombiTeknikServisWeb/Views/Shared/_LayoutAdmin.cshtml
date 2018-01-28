@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kombi Master Admin Panel</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/node_modules/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="~/node_modules/jquery-bar-rating/dist/themes/css-stars.css">
+    <link rel="stylesheet" href="~/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+</head>
+<body>
+    <div class="container-scroller">
+        <!-- header -->
+        @{
+            Html.RenderAction("APHeaderResult", "Admin");
+        }
+        <!-- header end -->
+        <div class="container-fluid page-body-wrapper">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <!-- sidebar -->
+                @{
+                    Html.RenderAction("APSidebarResult", "Admin");
+                }
+                @RenderBody()
+                <!-- sidebar end -->
+                <div class="content-wrapper">
+          
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Telif Hakkı © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. Her Hakkı Saklıdır</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">El işi & yapımı <i class="mdi mdi-heart text-danger"></i></span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- row-offcanvas ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="~/node_modules/chart.js/dist/Chart.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+</body>
+
+</html>

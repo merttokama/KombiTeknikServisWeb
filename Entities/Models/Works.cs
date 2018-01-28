@@ -17,11 +17,11 @@ namespace Entities.Models
         [Required]
         public int FaultReportID { get; set; }
         [Required]
-        public int TechnicionID { get; set; }
+        public int TechnicionID { get; set; } = 1;
         [Required]
         public bool FaultIsResolved { get; set; } = false;
         [Required]
-        public DateTime CompletionDate { get; set; } = new DateTime(01,01,01);
+        public DateTime CompletionDate { get; set; } = new DateTime(1901,01,01);
 
         [ForeignKey("TechnicionID")]
         public virtual Technicions Technicions { get; set; }

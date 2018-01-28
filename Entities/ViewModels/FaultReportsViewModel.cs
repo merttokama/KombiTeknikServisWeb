@@ -10,6 +10,8 @@ namespace Entities.ViewModels
 {
     public class FaultReportsViewModel
     {
+        [Key]
+        public int ID { get; set; }
         public string UserID { get; set; }
         [Required]
         public string LocationX { get; set; }
