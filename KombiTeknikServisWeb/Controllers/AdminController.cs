@@ -17,12 +17,17 @@ namespace KombiTeknikServisWeb.Controllers
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
+        #region SLIDER YÜZDE VE SAYILAR
+
         public static string isimSoyisim;
         public static string uyeSayisi;
         public static string aktifArizaSayisi;
         public static string cozulenArizaSayisi;
         public static string yuzdeAktifAriza;
         public static string yuzdeTamamlananAriza;
+        public static string yuzdeUyeSayisi;
+
+        #endregion
 
         [Authorize]
         public ActionResult Index()
@@ -53,14 +58,15 @@ namespace KombiTeknikServisWeb.Controllers
             }
             var yeniOnayArizaList = new FaultReportConfirmationRepo().GetAll();
             var calismalar = new WorksRepo().GetAll();
-            aktifArizaSayisi = calismalar.Count().ToString();
-            int sayacCozulenArizaSayisi = 0;
+
+            int sayacCozulenArizaSayisi = 0; // SLIDER YÜZDE BÖLÜMÜ
             foreach (var item2 in calismalar)
             {
-                if (item2.FaultIsResolved == true)
+                if (item2.FaultIsResolved == true) // SLIDER YÜZDE BÖLÜMÜ
                 {
                     sayacCozulenArizaSayisi++;
                 }
+
                 foreach (var item in yeniOnayArizaList)
                 {
                     var t = new Works();
@@ -81,24 +87,33 @@ namespace KombiTeknikServisWeb.Controllers
                     }
                 }
             }
+
+            #region SLIDER YÜZDE BÖLÜMÜ
+
+
+            aktifArizaSayisi = calismalar.Count().ToString();
             cozulenArizaSayisi = sayacCozulenArizaSayisi.ToString();
-            int a = Convert.ToInt32(cozulenArizaSayisi);
-            int b = Convert.ToInt32(aktifArizaSayisi);
+            double a = Convert.ToDouble(cozulenArizaSayisi);
+            double b = Convert.ToDouble(aktifArizaSayisi);
+            double c = arizaList.Count();
+            yuzdeUyeSayisi = Math.Round((100 / (Convert.ToDouble(uyeSayisi) / c)), 0).ToString();
             if (a != 0 && b != 0)
             {
-                yuzdeAktifAriza = (100 / ((a + b) / a)).ToString();
-                yuzdeTamamlananAriza = (100 / ((a + b) / b)).ToString();
+                yuzdeAktifAriza = Math.Round((100 / (c / b)), 0).ToString();
+                yuzdeTamamlananAriza = Math.Round((100 / (c / a)), 0).ToString();
             }
             else if (a == 0 && b != 0)
             {
-                yuzdeTamamlananAriza = (100 / ((a + b) / b)).ToString();
-                yuzdeAktifAriza = "0";
+                yuzdeAktifAriza = Math.Round((100 / (c / b)), 0).ToString();
+                yuzdeTamamlananAriza = "0";
             }
             else if (a != 0 && b == 0)
             {
-                yuzdeAktifAriza = (100 / ((a + b) / a)).ToString();
-                yuzdeTamamlananAriza = "0";
+                yuzdeTamamlananAriza = Math.Round((100 / (c / a)), 0).ToString();
+                yuzdeAktifAriza = "0";
             }
+
+            #endregion
 
             return View();
         }
