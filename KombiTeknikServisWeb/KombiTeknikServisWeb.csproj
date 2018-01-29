@@ -499,6 +499,9 @@
     <Content Include="Views\Home\KayitBasariliIslem.cshtml" />
     <Content Include="Views\Home\CikisBasariliIslem.cshtml" />
     <Content Include="Views\Admin\UserList.cshtml" />
+    <Content Include="Views\Admin\NewFaultReports.cshtml" />
+    <Content Include="Views\Admin\ActiveWorks.cshtml" />
+    <Content Include="Views\Admin\ComplateWorks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

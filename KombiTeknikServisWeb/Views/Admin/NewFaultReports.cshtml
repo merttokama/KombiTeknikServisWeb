@@ -1,0 +1,65 @@
+﻿
+@model List<Entities.ViewModels.FaultReportsViewModel>
+@{
+    ViewBag.Title = "NewFaultReports";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-lg-2"></div>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Onaylanmamış Arıza Reporları Listesi</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Kullanıcı ID
+                        </th>
+                        <th>
+                            Adres
+                        </th>
+                        <th>
+                            Açıklama
+                        </th>
+                        <th>
+                            X Lokasyonu
+                        </th>
+                        <th>
+                            Y Lokasyonu
+                        </th>
+                        <th>
+                            Rapor Oluşturma Tarihi
+                        </th>
+                        <th>
+                            Teknisyen Ata
+                        </th>
+                        <td>
+
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Entities.ViewModels.FaultReportsViewModel item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.UserID</td>
+                            <td>@item.Address</td>
+                            <td>@item.Description</td>
+                            <td>@item.LocationX</td>
+                            <td>@item.LocationY</td>
+                            <td>@item.FaultReportDate</td>
+                            <td>Teknisyen Seç</td>
+                            <td>Onayla/İptal</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

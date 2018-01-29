@@ -1,50 +1,45 @@
-﻿@model List<Entity.ViewModels.ProfileViewModel>
+﻿@model List<Entities.ViewModels.WorksViewModel>
 @{
-    ViewBag.Title = "UserList";
+    ViewBag.Title = "ComplateWorks";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <div class="col-lg-2"></div>
 <div class="col-lg-10 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Kullanıcı Listesi</h4>
+            <h4 class="card-title">Tamamlanan İşler Listesi</h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>
-                            Kullanıcı Adı
+                            ID
                         </th>
                         <th>
-                            Adı Soyadı
+                            Arıza ID
                         </th>
                         <th>
-                            Telefon Numarası
+                            Teknisyen ID
                         </th>
                         <th>
-                            Mail Adresi
+                            Teknisyen Raporu
                         </th>
                         <th>
-                            Uyelik Türü
-                        </th>
-                        <th>
-
+                            Arıza Onarım Tarihi
                         </th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach (ProfileViewModel item in Model)
+                    @foreach (Entities.ViewModels.WorksViewModel item in Model)
                     {
                         <tr>
-                            <td>@item.Username</td>
-                            <td>@(item.Name + " " + item.Surname)</td>
-                            <td>@item.PhoneNumber</td>
-                            <td>@item.Email</td>
-                            <td>@item.Role</td>
-                            <td>Rol Seç</td>
+                            <td>@item.ID</td>
+                            <td>@item.FaultReportID</td>
+                            <td>@item.TechnicionID</td>
+                            <td>Teknisyen Raporu</td>
+                            <td>@item.CompletionDate</td>
                         </tr>
                     }
-
                 </tbody>
             </table>
         </div>

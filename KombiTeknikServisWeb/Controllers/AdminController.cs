@@ -96,7 +96,7 @@ namespace KombiTeknikServisWeb.Controllers
             double a = Convert.ToDouble(cozulenArizaSayisi);
             double b = Convert.ToDouble(aktifArizaSayisi);
             double c = arizaList.Count();
-            yuzdeUyeSayisi = Math.Round((100 / (c / Convert.ToDouble(uyeSayisi) )), 0).ToString();
+            yuzdeUyeSayisi = Math.Round((100 / (c / Convert.ToDouble(uyeSayisi))), 0).ToString();
             if (a != 0 && b != 0)
             {
                 yuzdeAktifAriza = Math.Round((100 / (c / b)), 0).ToString();
@@ -117,6 +117,94 @@ namespace KombiTeknikServisWeb.Controllers
 
             return View();
         }
+        public ActionResult NewFaultReports()
+        {
+            var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
+            var arizaList = new FaultReportsRepo().GetAll().ToList();
+            List<FaultReportsViewModel> ArizaBildirimleri = new List<FaultReportsViewModel>();
+            foreach (var item in arizaList)
+            {
+                foreach (var item2 in onayArizaList)
+                {
+                    if (item2.FaultReportID == item.ID && item2.Approved == false)
+                    {
+                        ArizaBildirimleri.Add(new FaultReportsViewModel()
+                        {
+                            ID = item.ID,
+                            UserID = item.UserID,
+                            Address = item.Address,
+                            Description = item.Description,
+                            LocationX = item.LocationX,
+                            LocationY = item.LocationY,
+                            FaultReportDate = item.FaultReportDate
+                        });
+
+                    }
+                }
+            }
+            return View(ArizaBildirimleri);
+        }
+
+        public ActionResult ActiveWorks()
+        {
+            var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
+            var arizaList = new FaultReportsRepo().GetAll().ToList();
+            var islerList = new WorksRepo().GetAll().ToList();
+            List<WorksViewModel> ArizaBildirimleri = new List<WorksViewModel>();
+            foreach (var item in arizaList)
+            {
+                foreach (var item2 in onayArizaList)
+                {
+                    if (item2.FaultReportID == item.ID && item2.Approved == true)
+                    {
+                        foreach (var item3 in islerList)
+                        {
+                            if (item3.FaultIsResolved == false)
+                            {
+                                ArizaBildirimleri.Add(new WorksViewModel()
+                                {
+                                    ID = item3.ID,
+                                    FaultReportID = item3.FaultReportID,
+                                    TechnicionID = item3.TechnicionID,
+                                    FaultIsResolved = false,
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            return View(ArizaBildirimleri);
+        }
+        public ActionResult ComplateWorks()
+        {
+            var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
+            var arizaList = new FaultReportsRepo().GetAll().ToList();
+            var islerList = new WorksRepo().GetAll().ToList();
+            List<WorksViewModel> ArizaBildirimleri = new List<WorksViewModel>();
+            foreach (var item in arizaList)
+            {
+                foreach (var item2 in onayArizaList)
+                {
+                    if (item2.FaultReportID == item.ID && item2.Approved == true)
+                    {
+                        foreach (var item3 in islerList)
+                        {
+                            if (item3.FaultIsResolved == true)
+                            {
+                                ArizaBildirimleri.Add(new WorksViewModel()
+                                {
+                                    ID = item3.ID,
+                                    FaultReportID = item3.FaultReportID,
+                                    TechnicionID = item3.TechnicionID,
+                                    CompletionDate = item3.CompletionDate
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            return View(ArizaBildirimleri);
+        }
 
         public ActionResult UserList()
         {
@@ -125,7 +213,8 @@ namespace KombiTeknikServisWeb.Controllers
             var TumKullanicilar = userManager.Context.Set<ApplicationUser>().ToList();
             List<ProfileViewModel> KullanicilarProfilList = new List<ProfileViewModel>();
             TumKullanicilar.ForEach(x =>
-            KullanicilarProfilList.Add(new ProfileViewModel() {
+            KullanicilarProfilList.Add(new ProfileViewModel()
+            {
                 Name = x.Name,
                 Surname = x.Surname,
                 Username = x.UserName,
