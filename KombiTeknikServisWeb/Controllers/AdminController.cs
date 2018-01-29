@@ -96,7 +96,7 @@ namespace KombiTeknikServisWeb.Controllers
             double a = Convert.ToDouble(cozulenArizaSayisi);
             double b = Convert.ToDouble(aktifArizaSayisi);
             double c = arizaList.Count();
-            yuzdeUyeSayisi = Math.Round((100 / (Convert.ToDouble(uyeSayisi) / c)), 0).ToString();
+            yuzdeUyeSayisi = Math.Round((100 / (c / Convert.ToDouble(uyeSayisi) )), 0).ToString();
             if (a != 0 && b != 0)
             {
                 yuzdeAktifAriza = Math.Round((100 / (c / b)), 0).ToString();
@@ -116,6 +116,25 @@ namespace KombiTeknikServisWeb.Controllers
             #endregion
 
             return View();
+        }
+
+        public ActionResult UserList()
+        {
+            var userManager = MembershipTools.NewUserStore();
+            var roleManager = MembershipTools.NewRoleManager();
+            var TumKullanicilar = userManager.Context.Set<ApplicationUser>().ToList();
+            List<ProfileViewModel> KullanicilarProfilList = new List<ProfileViewModel>();
+            TumKullanicilar.ForEach(x =>
+            KullanicilarProfilList.Add(new ProfileViewModel() {
+                Name = x.Name,
+                Surname = x.Surname,
+                Username = x.UserName,
+                PhoneNumber = x.PhoneNumber,
+                Email = x.Email,
+                Role = roleManager.FindById(x.Roles.FirstOrDefault().RoleId).Name
+            })
+            );
+            return View(KullanicilarProfilList);
         }
 
         #region PARTIALS

@@ -494,6 +494,11 @@
     <Content Include="Views\Shared\_PartialAPSidebar.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\SendKombiMail.cshtml" />
+    <Content Include="Views\Home\MailBasariliIslem.cshtml" />
+    <Content Include="Views\Home\KayitBasariliIslem.cshtml" />
+    <Content Include="Views\Home\CikisBasariliIslem.cshtml" />
+    <Content Include="Views\Admin\UserList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

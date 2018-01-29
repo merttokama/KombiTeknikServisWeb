@@ -3,6 +3,7 @@ using BLL.Repository;
 using BLL.Settings;
 using Entities.Models;
 using Entities.ViewModels;
+using Entity.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -19,6 +21,31 @@ namespace KombiTeknikServisWeb.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult SendKombiMail()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> SendKombiMail(MailModel model)
+        {
+            var kombimasterTo = "kombimaster2018@gmail.com";
+            try
+            {
+                await SiteSettings.SendMail(new MailModel()
+                {
+                    To = kombimasterTo,
+                    Subject = "Kullanıcı - iletişim",
+                    Message = $"Merhaba Kombi Master Yönetimi; <br/><br/>{model.Message} <br/>Müşteri Adı: {model.GonderenAdı} <br/>Müşteri Telefonu: {model.Telefon}<br/>Müşteri Mail Adresi: {model.MailAdresi}"
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return RedirectToAction("MailBasariliIslem", "Home");
+        }
+
         public ActionResult Index()
         {
             SecilenMenu(0);
@@ -28,7 +55,18 @@ namespace KombiTeknikServisWeb.Controllers
         {
             return View();
         }
-
+        public ActionResult MailBasariliIslem()
+        {
+            return View();
+        }
+        public ActionResult KayitBasariliIslem()
+        {
+            return View();
+        }
+        public ActionResult CikisBasariliIslem()
+        {
+            return View();
+        }
         public ActionResult ComingSoon()
         {
             return View();

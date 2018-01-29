@@ -1,4 +1,5 @@
-﻿<section class="md-section md-skin-dark js-consult-form" style="background-image:url('../../assets/img/backgrounds/1.jpg');">
+﻿@model Entity.ViewModels.MailModel
+<section class="md-section md-skin-dark js-consult-form" style="background-image:url('../../assets/img/backgrounds/1.jpg');">
     <div class="md-overlay"></div>
     <div class="container">
         <div class="row">
@@ -17,23 +18,27 @@
         <!-- form-01 -->
         <div class="form-01 consult-form js-consult-form__content">
             <h2 class="form-01__title">Bize geri bildirim verin</h2>
-            <form class="form-01__form">
+            @using (Html.BeginForm("SendKombiMail", "Home", FormMethod.Post, new { @class = "form-01__form" }))
+            {
+                @Html.AntiForgeryToken()
                 <div class="form__item form__item--03">
-                    <input type="text" name="name" placeholder="Adınız" />
+                    @Html.TextBoxFor(x => x.GonderenAdı, new { type = "text", name = "name", placeholder = "Adınız" })
                 </div>
                 <div class="form__item form__item--03">
-                    <input type="text" name="phone" placeholder="Telefon Numaranız" />
+                    @Html.TextBoxFor(x => x.Telefon, new { type = "text", name = "phone", placeholder = "Telefon Numaranız" })
                 </div>
                 <div class="form__item form__item--03">
-                    <input type="email" name="email" placeholder="Email Adresiniz" />
+                    @Html.TextBoxFor(x => x.MailAdresi, new { type = "email", name = "email", placeholder = "Email Adresiniz" })
                 </div>
                 <div class="form__item">
-                    <textarea rows="3" name="Your message" placeholder="Mesajınız"></textarea>
+                    @Html.TextAreaFor(x => x.Message, new { type = "textarea", rows = "3", name = "Your message", placeholder = "Mesajınız" })
                 </div>
                 <div class="form__button">
-                    <a class="btn btn-primary btn-w180" href="#">mesaj gönder</a>
+                    <button type="submit" class="btn btn-primary btn-w180">
+                        mesaj gönder
+                    </button>
                 </div>
-            </form>
+            }
         </div><!-- End / form-01 -->
 
     </div>

@@ -1,0 +1,52 @@
+﻿@model List<Entity.ViewModels.ProfileViewModel>
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="col-lg-2"></div>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Kullanıcı Listesi</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Kullanıcı Adı
+                        </th>
+                        <th>
+                            Adı Soyadı
+                        </th>
+                        <th>
+                            Telefon Numarası
+                        </th>
+                        <th>
+                            Mail Adresi
+                        </th>
+                        <th>
+                            Uyelik Türü
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (ProfileViewModel item in Model)
+                    {
+                        <tr>
+                            <td>@item.Username</td>
+                            <td>@(item.Name + " " + item.Surname)</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.Role</td>
+                            <td>işlemmmm</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

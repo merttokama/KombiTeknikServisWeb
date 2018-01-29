@@ -13,5 +13,9 @@ namespace Entity.ViewModels
         public string Bcc { get; set; }
         public string Subject { get; set; }
         public string Message { get; set; }
+        public string Telefon { get; set; }
+        public string MailAdresi { get; set; }
+        public string GonderenAdı { get; set; }
+
     }
 }

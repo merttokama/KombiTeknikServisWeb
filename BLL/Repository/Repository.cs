@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entities.Models;
+using Entity.IdentityModels;
 using System;
 using System.Data.Entity.Validation;
 using System.Linq;

@@ -11,8 +11,8 @@ namespace BLL.Settings
 {
     public static class SiteSettings
     {
-        public static string SiteMail = "kamilfidil@gmail.com";
-        public static string SiteMailPassword = "123456kf";
+        public static string SiteMail = "kombimaster2018@gmail.com";
+        public static string SiteMailPassword = "kombi2018";
         public static string SiteMailSmtpHost = "smtp.gmail.com";
         public static int SiteMailSmtpPort = 587;
         public static bool SiteMailEnableSsl = true;
@@ -44,7 +44,6 @@ namespace BLL.Settings
                 smtp.EnableSsl = SiteMailEnableSsl;
                 await smtp.SendMailAsync(message);
             }
-
         }
         public static string UrlFormatConverter(string name)
         {

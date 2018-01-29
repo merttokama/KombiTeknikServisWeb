@@ -49,5 +49,7 @@ Parolanın ilk karakteri bir harf olmalıdır, en az 5 karakter içermeli ve en 
         [Display(Name = "Telefon Numarası")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Girilen telefon formatı geçerli değil.")]
         public string PhoneNumber { get; set; }
+
+        public string Role { get; set; }
     }
 }

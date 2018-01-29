@@ -30,6 +30,7 @@ namespace KombiTeknikServisWeb.Controllers
             HomeController.SecilenMenu(5);
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
@@ -74,7 +75,7 @@ namespace KombiTeknikServisWeb.Controllers
                     Message = $"Merhaba {user.Name} {user.Surname} <br/>Hesabınızı aktifleştirmek için <b><a href='{siteUrl}/Account/Activation?code={activationCode}'>Aktivasyon Kodu</a></b> tıklayınız."
                 });
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("KayitBasariliIslem", "Home");
             }
             else
             {
@@ -145,7 +146,7 @@ namespace KombiTeknikServisWeb.Controllers
         public ActionResult Logout()
         {
             HttpContext.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("BasariliIslem", "Home");
+            return RedirectToAction("CikisBasariliIslem", "Home");
         }
         [Authorize]
         public new ActionResult Profile()
@@ -194,7 +195,7 @@ namespace KombiTeknikServisWeb.Controllers
                     PhoneNumber = user.PhoneNumber,
                     RegisterDate = user.RegisterDate
                 };
-                return RedirectToAction("BasariliIslem", "Home"); 
+                return RedirectToAction("BasariliIslem", "Home");
             }
             catch (Exception ex)
             {

@@ -24,3 +24,11 @@ C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.c
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.csproj.CoreCompileInputs.cache
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.dll
 C:\Users\mertt\Desktop\KombiTeknikServisMVC-master\Template\obj\Debug\Template.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\bin\Template.dll.config
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\bin\Template.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\bin\Template.pdb
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\obj\Debug\Template.csprojResolveAssemblyReference.cache
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\obj\Debug\Template.dll
+C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\Template\obj\Debug\Template.pdb
