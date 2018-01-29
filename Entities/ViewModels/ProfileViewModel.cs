@@ -51,5 +51,7 @@ Parolanın ilk karakteri bir harf olmalıdır, en az 5 karakter içermeli ve en 
         public string PhoneNumber { get; set; }
 
         public string Role { get; set; }
+        public string OtherRoles { get; set; }
+
     }
 }

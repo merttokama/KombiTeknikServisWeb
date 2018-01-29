@@ -40,8 +40,28 @@
                             <td>@(item.Name + " " + item.Surname)</td>
                             <td>@item.PhoneNumber</td>
                             <td>@item.Email</td>
-                            <td>@item.Role</td>
-                            <td>Rol Seç</td>
+                            <td>
+                                <select>
+                                    <option value="@item.Role">@item.Role</option>
+                                    @if (Entity.Enums.IdentityRoles.Admin.ToString() != item.Role)
+                                    {
+                                        <option value="Admin">Admin</option>
+                                    }
+                                    @if (Entity.Enums.IdentityRoles.Operator.ToString() != item.Role)
+                                    {
+                                        <option value="Operator">Operator</option>
+                                    }
+                                    @if (Entity.Enums.IdentityRoles.Passive.ToString() != item.Role)
+                                    {
+                                        <option value="Passive">Passive</option>
+                                    }
+                                    @if (Entity.Enums.IdentityRoles.User.ToString() != item.Role)
+                                    {
+                                        <option value="User">User</option>
+                                    }
+                                </select>
+                            </td>
+                            <td><button type="button">Kaydet</button></td>  
                         </tr>
                     }
 

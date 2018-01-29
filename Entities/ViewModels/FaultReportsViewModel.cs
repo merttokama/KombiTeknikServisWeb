@@ -32,5 +32,9 @@ namespace Entities.ViewModels
         public string DosyaYolu { get; set; }
         public string Uzanti { get; set; }
 
+        public bool Appropriate { get; set; } = true;
+
+        public string NameSurname { get; set; }
+
     }
 }

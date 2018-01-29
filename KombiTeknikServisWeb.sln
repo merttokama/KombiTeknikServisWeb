@@ -11,10 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entities\Entity.csproj", "{45FB36A6-004A-424E-BB44-66085FBA3D68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Template.csproj", "{FBA50063-D2F6-400B-AD19-B8B93BC4AD86}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateAdminPanel", "TemplateAdminPanel\TemplateAdminPanel.csproj", "{FE208248-5B48-44B0-9044-888C941AB431}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,14 +33,6 @@ Global
 		{45FB36A6-004A-424E-BB44-66085FBA3D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FB36A6-004A-424E-BB44-66085FBA3D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FB36A6-004A-424E-BB44-66085FBA3D68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBA50063-D2F6-400B-AD19-B8B93BC4AD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBA50063-D2F6-400B-AD19-B8B93BC4AD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBA50063-D2F6-400B-AD19-B8B93BC4AD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBA50063-D2F6-400B-AD19-B8B93BC4AD86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE208248-5B48-44B0-9044-888C941AB431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE208248-5B48-44B0-9044-888C941AB431}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE208248-5B48-44B0-9044-888C941AB431}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE208248-5B48-44B0-9044-888C941AB431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

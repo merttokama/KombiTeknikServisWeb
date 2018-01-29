@@ -2,6 +2,7 @@
 using BLL.Repository;
 using Entities.Models;
 using Entities.ViewModels;
+using Entity.Enums;
 using Entity.IdentityModels;
 using Entity.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -26,7 +27,6 @@ namespace KombiTeknikServisWeb.Controllers
         public static string yuzdeAktifAriza;
         public static string yuzdeTamamlananAriza;
         public static string yuzdeUyeSayisi;
-
         #endregion
 
         [Authorize]
@@ -119,16 +119,36 @@ namespace KombiTeknikServisWeb.Controllers
         }
         public ActionResult NewFaultReports()
         {
+            var userManager = MembershipTools.NewUserStore();
+            var TumKullanicilar = userManager.Context.Set<ApplicationUser>().ToList();
+            var teknikerler = new TechnicionsRepo().GetAll().ToList();
             var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
             var arizaList = new FaultReportsRepo().GetAll().ToList();
-            List<FaultReportsViewModel> ArizaBildirimleri = new List<FaultReportsViewModel>();
+            List<FaultReportsViewModel> uygunTeknikerler = new List<FaultReportsViewModel>();
+
+            foreach (var item1 in teknikerler)
+            {
+                if (item1.Appropriate == true)
+                {
+                    foreach (var item in TumKullanicilar)
+                    {
+                        if (item1.UserID == item.Id)
+                        {
+                            uygunTeknikerler.Add(new FaultReportsViewModel()
+                            {
+                                NameSurname = item.Name + " " + item.Surname 
+                            });
+                        }
+                    }
+                }
+            }
             foreach (var item in arizaList)
             {
                 foreach (var item2 in onayArizaList)
                 {
                     if (item2.FaultReportID == item.ID && item2.Approved == false)
                     {
-                        ArizaBildirimleri.Add(new FaultReportsViewModel()
+                        uygunTeknikerler.Add(new FaultReportsViewModel()
                         {
                             ID = item.ID,
                             UserID = item.UserID,
@@ -138,11 +158,10 @@ namespace KombiTeknikServisWeb.Controllers
                             LocationY = item.LocationY,
                             FaultReportDate = item.FaultReportDate
                         });
-
                     }
                 }
             }
-            return View(ArizaBildirimleri);
+            return View(uygunTeknikerler);
         }
 
         public ActionResult ActiveWorks()
@@ -220,7 +239,8 @@ namespace KombiTeknikServisWeb.Controllers
                 Username = x.UserName,
                 PhoneNumber = x.PhoneNumber,
                 Email = x.Email,
-                Role = roleManager.FindById(x.Roles.FirstOrDefault().RoleId).Name
+                Role = roleManager.FindById(x.Roles.FirstOrDefault().RoleId).Name,
+
             })
             );
             return View(KullanicilarProfilList);
