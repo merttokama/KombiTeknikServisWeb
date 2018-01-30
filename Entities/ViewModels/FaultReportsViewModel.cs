@@ -27,14 +27,9 @@ namespace Entities.ViewModels
         public string Description { get; set; }
         [Required]
         public DateTime FaultReportDate { get; set; } = DateTime.Now;
-
+        [Required]
         public List<HttpPostedFileBase> Images { get; set; } = new List<HttpPostedFileBase>();
         public string DosyaYolu { get; set; }
         public string Uzanti { get; set; }
-
-        public bool Appropriate { get; set; } = true;
-
-        public string NameSurname { get; set; }
-
     }
 }

@@ -69,34 +69,34 @@
                 <div class="group">
                     <span class="text-danger">@Html.ValidationSummary()</span>
                     Kullanıcı Adı *
-                    @Html.TextBoxFor(x => x.Username, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.Username, new { type = "text", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <div class="group">
                     Ad *
-                    @Html.TextBoxFor(x => x.Name, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.Name, new { type = "text", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <div class="group">
                     Soyad *
-                    @Html.TextBoxFor(x => x.Surname, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.Surname, new { type = "text", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <div class="group">
                     Telefon *
                     <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
-                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "text" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.PhoneNumber, new { type = "text", required = "required" })<span class="highlight"></span><span class="bar"></span>
 
                 </div>
                 <div class="group">
                     Email *
-                    @Html.TextBoxFor(x => x.Email, new { type = "email" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.Email, new { type = "email", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <div class="group">
                     Şifre *
-                    @Html.TextBoxFor(x => x.Password, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.Password, new { type = "password", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <div class="group">
                     Şifre Tekrar *
                     <span class="text-danger">@Html.ValidationMessageFor(x => x.ConfirmPassword)</span>
-                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password" })<span class="highlight"></span><span class="bar"></span>
+                    @Html.TextBoxFor(x => x.ConfirmPassword, new { type = "password", required = "required" })<span class="highlight"></span><span class="bar"></span>
                 </div>
                 <button type="submit" class="button buttonBlue">
                     Kaydol

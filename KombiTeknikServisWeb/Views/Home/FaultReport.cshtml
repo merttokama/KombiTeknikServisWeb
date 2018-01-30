@@ -69,22 +69,22 @@
                     @Html.HiddenFor(x => x.LocationX, new { id = "lat" })
                     @Html.HiddenFor(x => x.LocationY, new { id = "long" })
                     <span class="text-danger">@Html.ValidationSummary()</span>
-                        <div class="group">
-                            <b>Ev Adresinizi Giriniz* :</b>
-                            @Html.TextBoxFor(x => x.Address)<span class="highlight"></span><span class="bar"></span>
-                        </div>
+                    <div class="group">
+                        <b>Ev Adresinizi Giriniz* :</b>
+                        @Html.TextBoxFor(x => x.Address, new { required = "required" })<span class="highlight"></span><span class="bar"></span>
+                    </div>
                         <div class="group">
                             <b>Arıza Sebebini Açıklayınız* :</b>
-                            @Html.TextAreaFor(x => x.Description)<span class="highlight"></span><span class="bar"></span>
+                            @Html.TextAreaFor(x => x.Description, new { required = "required" })<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
                             <b>Arızayı Anlatan Fotoğraf Ekleyiniz :</b>
-                            @Html.TextBoxFor(x => x.Images, new { type = "file", multiple = "multiple", accept = "image/*" })<span class="highlight"></span><span class="bar"></span>
+                            @Html.TextBoxFor(x => x.Images, new { type = "file", multiple = "multiple", accept = "image/*", required = "required" })<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
                             <b>Konumunuzu Seçiniz* :</b>
                             <div>
-                                <div class="panel panel-default" id="map" style="height:300px;"></div>
+                                <div class="panel panel-default" id="map" style="height:300px"></div>
                             </div>
                         </div>
                         <button type="submit" class="button buttonBlue">

@@ -73,20 +73,20 @@
                     </div>
                     <div class="group">
                         <b>Adı</b>
-                        @Html.TextBoxFor(x => x.Name)<span class="highlight"></span><span class="bar"></span>
+                        @Html.TextBoxFor(x => x.Name, new { required = "required" })<span class="highlight"></span><span class="bar"></span>
                     </div>
                         <div class="group">
                             <b>Soyadı</b>
-                            @Html.TextBoxFor(x => x.Surname)<span class="highlight"></span><span class="bar"></span>
+                            @Html.TextBoxFor(x => x.Surname, new {required = "required"})<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
                             <span class="text-danger">@Html.ValidationMessageFor(x => x.PhoneNumber)</span>
                             <b>Telefon Numarası</b>
-                            @Html.TextBoxFor(x => x.PhoneNumber)<span class="highlight"></span><span class="bar"></span>
+                            @Html.TextBoxFor(x => x.PhoneNumber, new { required = "required" })<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
                             <b>Email Adresi</b>
-                            @Html.TextBoxFor(x => x.Email)<span class="highlight"></span><span class="bar"></span>
+                            @Html.TextBoxFor(x => x.Email, new { required = "required" })<span class="highlight"></span><span class="bar"></span>
                         </div>
                         <div class="group">
                             <b>Kayıt Tarihi:  </b>

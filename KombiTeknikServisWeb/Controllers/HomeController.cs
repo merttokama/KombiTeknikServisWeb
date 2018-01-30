@@ -91,6 +91,11 @@ namespace KombiTeknikServisWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult FaultReport(FaultReportsViewModel model)
         {
+            if (model.LocationX == null)
+            {
+                model.LocationX = "0";
+                model.LocationY = "0";
+            }
             var userManager = MembershipTools.NewUserManager();
             var user = userManager.FindById(HttpContext.User.Identity.GetUserId());
             SecilenMenu(2);

@@ -68,11 +68,11 @@
                     <div class="group">
                         <span class="text-danger">@Html.ValidationSummary()</span>
                         Kullanıcı Adı
-                        @Html.TextBoxFor(x => x.Username, new { type = "text"})<span class="highlight"></span><span class="bar"></span>
+                        @Html.TextBoxFor(x => x.Username, new { type = "text", required = "required" })<span class="highlight"></span><span class="bar"></span>
                     </div>
                     <div class="group">
                         Şifre
-                        @Html.TextBoxFor(x => x.Password, new { type = "password"})<span class="highlight"></span><span class="bar"></span>
+                        @Html.TextBoxFor(x => x.Password, new { type = "password", required = "required" })<span class="highlight"></span><span class="bar"></span>
                         @Html.ValidationMessageFor(x => x.Password)
                     </div>
                     <button type="submit" class="button buttonBlue">
