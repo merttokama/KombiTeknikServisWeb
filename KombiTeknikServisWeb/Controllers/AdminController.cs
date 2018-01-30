@@ -8,6 +8,7 @@ using Entity.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -66,26 +67,25 @@ namespace KombiTeknikServisWeb.Controllers
                 {
                     sayacCozulenArizaSayisi++;
                 }
-
-                foreach (var item in yeniOnayArizaList)
-                {
-                    var t = new Works();
-                    if (item.Approved == true && item.FaultReportID != item2.FaultReportID)
-                    {
-                        t.TechnicionID = 1;
-                        t.ID = 0;
-                        t.FaultReportID = item.FaultReportID;
-                        t.FaultIsResolved = false;
-                        try
-                        {
-                            new WorksRepo().Insert(t);
-                        }
-                        catch (Exception ex)
-                        {
-                            throw ex;
-                        }
-                    }
-                }
+                //foreach (var item in yeniOnayArizaList)
+                //{
+                //    var t = new Works();
+                //    if (item.Approved == true && item.FaultReportID != item2.FaultReportID)
+                //    {
+                //        t.TechnicionID = 1;
+                //        t.ID = 0;
+                //        t.FaultReportID = item.FaultReportID;
+                //        t.FaultIsResolved = false;
+                //        try
+                //        {
+                //            new WorksRepo().Insert(t);
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //            throw ex;
+                //        }
+                //    }
+                //}
             }
 
             #region SLIDER YÜZDE BÖLÜMÜ
@@ -125,7 +125,6 @@ namespace KombiTeknikServisWeb.Controllers
             var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
             var arizaList = new FaultReportsRepo().GetAll().ToList();
             FaultListViewModel model = new FaultListViewModel();
-
             foreach (var item1 in teknikerler)
             {
                 if (item1.Appropriate == true)
@@ -134,7 +133,6 @@ namespace KombiTeknikServisWeb.Controllers
                     {
                         if (item1.UserID == item.Id)
                         {
-
                             model.Teknikerler.Add(item);
                         }
                     }
@@ -170,12 +168,11 @@ namespace KombiTeknikServisWeb.Controllers
                     try
                     {
                         new WorksRepo().Insert(aktifIsler);
-                        var teknikerUygunDegil = new Technicions()
-                        {
-                            ID = item.ID,
-                            UserID = teknisyenId,
-                            Appropriate = false
-                        };
+                        var teknikerUygunDegil = new TechnicionsRepo().GetAll().FirstOrDefault(x => x.ID == item.ID);
+                        teknikerUygunDegil.Appropriate = false;
+                        var onaylananArızalar = new FaultReportConfirmationRepo().GetAll().FirstOrDefault(x => x.FaultReportID == aktifIsler.FaultReportID);
+                        onaylananArızalar.Approved = true;
+                        new FaultReportConfirmationRepo().Update();
                         new TechnicionsRepo().Update();
                     }
                     catch (Exception ex)
@@ -186,7 +183,6 @@ namespace KombiTeknikServisWeb.Controllers
             }
             return RedirectToAction("NewFaultReports");
         }
-
         public ActionResult ActiveWorks()
         {
             var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
@@ -201,7 +197,7 @@ namespace KombiTeknikServisWeb.Controllers
                     {
                         foreach (var item3 in islerList)
                         {
-                            if (item3.FaultIsResolved == false)
+                            if (item3.FaultIsResolved == false && item3.FaultReportID == item2.FaultReportID)
                             {
                                 ArizaBildirimleri.Add(new WorksViewModel()
                                 {
@@ -247,7 +243,6 @@ namespace KombiTeknikServisWeb.Controllers
             }
             return View(ArizaBildirimleri);
         }
-
         public ActionResult UserList()
         {
             var userManager = MembershipTools.NewUserStore();
@@ -263,11 +258,32 @@ namespace KombiTeknikServisWeb.Controllers
                 PhoneNumber = x.PhoneNumber,
                 Email = x.Email,
                 Role = roleManager.FindById(x.Roles.FirstOrDefault().RoleId).Name,
-
-            })
-            );
+            }));
             return View(KullanicilarProfilList);
         }
+
+        //public ActionResult UserList(string ProfilRol, string profilUserName, ApplicationUser user, string role)
+        //{
+        //    var Manager = MembershipTools.NewUserManager();
+        //    if (ModelState.IsValid)
+        //    {
+        //        // THIS LINE IS IMPORTANT
+        //        var oldUser = Manager.FindById(user.Id);
+        //        var oldRoleId = oldUser.Roles.SingleOrDefault().RoleId;
+        //        var oldRoleName = DB.Roles.SingleOrDefault(r => r.Id == oldRoleId).Name;
+
+        //        if (oldRoleName != role)
+        //        {
+        //            Manager.RemoveFromRole(user.Id, oldRoleName);
+        //            Manager.AddToRole(user.Id, role);
+        //        }
+        //        DB.Entry(user).State = EntityState.Modified;
+
+        //        return RedirectToAction("UserList");
+        //    }
+        //    return View(user);
+        //}
+
 
         #region PARTIALS
         public PartialViewResult APHeaderResult()
@@ -279,5 +295,6 @@ namespace KombiTeknikServisWeb.Controllers
             return PartialView("_PartialAPSidebar");
         }
         #endregion
+
     }
 }

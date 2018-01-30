@@ -16,7 +16,7 @@ namespace Entities.Models
         public int ID { get; set; }
         public string UserID { get; set; }
         [Required]
-        public bool Appropriate { get; set; } = true;
+        public bool Appropriate { get; set; }
 
         [ForeignKey("UserID")]
         public virtual ApplicationUser ApplicationUser { get; set; }

@@ -164,3 +164,4 @@ C:\Users\mertt\Source\repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a1
 C:\Users\mertt\Source\repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a1.resources
 C:\Users\pro_sabah\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
+C:\Users\mertt\Source\Repos\KombiTeknikServisWeb\DAL\obj\Debug\DAL.Migrations.a2.resources

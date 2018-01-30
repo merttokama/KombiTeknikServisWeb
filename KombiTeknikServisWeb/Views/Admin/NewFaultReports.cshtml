@@ -3,9 +3,6 @@
     ViewBag.Title = "NewFaultReports";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-@{
-    int i = 0;
-}
 <div class="col-lg-2"></div>
 <div class="col-lg-10 grid-margin stretch-card">
     <div class="card">
@@ -45,7 +42,7 @@
 
                     @foreach (Entities.Models.FaultReports item in Model.Arizalar)
                     {
-                        i++;
+
                         <tr>
                             <td>@item.ID</td>
                             <td>@item.UserID</td>
