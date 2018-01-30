@@ -124,7 +124,7 @@ namespace KombiTeknikServisWeb.Controllers
             var teknikerler = new TechnicionsRepo().GetAll().ToList();
             var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
             var arizaList = new FaultReportsRepo().GetAll().ToList();
-            List<FaultReportsViewModel> uygunTeknikerler = new List<FaultReportsViewModel>();
+            FaultListViewModel model = new FaultListViewModel();
 
             foreach (var item1 in teknikerler)
             {
@@ -134,10 +134,8 @@ namespace KombiTeknikServisWeb.Controllers
                     {
                         if (item1.UserID == item.Id)
                         {
-                            uygunTeknikerler.Add(new FaultReportsViewModel()
-                            {
-                                NameSurname = item.Name + " " + item.Surname 
-                            });
+
+                            model.Teknikerler.Add(item);
                         }
                     }
                 }
@@ -148,20 +146,45 @@ namespace KombiTeknikServisWeb.Controllers
                 {
                     if (item2.FaultReportID == item.ID && item2.Approved == false)
                     {
-                        uygunTeknikerler.Add(new FaultReportsViewModel()
-                        {
-                            ID = item.ID,
-                            UserID = item.UserID,
-                            Address = item.Address,
-                            Description = item.Description,
-                            LocationX = item.LocationX,
-                            LocationY = item.LocationY,
-                            FaultReportDate = item.FaultReportDate
-                        });
+                        model.Arizalar.Add(item);
                     }
                 }
             }
-            return View(uygunTeknikerler);
+            return View(model);
+        }
+        public ActionResult NewFaultReportsTeknisyen(int arizaId, string teknisyenId)
+        {
+            var teknikerler = new TechnicionsRepo().GetAll().ToList();
+            foreach (var item in teknikerler)
+            {
+                if (item.UserID == teknisyenId)
+                {
+                    var aktifIsler = new Works()
+                    {
+                        ID = 0,
+                        FaultIsResolved = false,
+                        FaultReportID = arizaId,
+                        TechnicionID = item.ID,
+                        CompletionDate = new DateTime(1901, 01, 01)
+                    };
+                    try
+                    {
+                        new WorksRepo().Insert(aktifIsler);
+                        var teknikerUygunDegil = new Technicions()
+                        {
+                            ID = item.ID,
+                            UserID = teknisyenId,
+                            Appropriate = false
+                        };
+                        new TechnicionsRepo().Update();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+            return RedirectToAction("NewFaultReports");
         }
 
         public ActionResult ActiveWorks()

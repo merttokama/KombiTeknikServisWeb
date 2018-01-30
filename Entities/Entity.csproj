@@ -89,6 +89,7 @@
     <Compile Include="Models\WorksReports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\RangeAttribute.cs" />
+    <Compile Include="ViewModels\FaultListViewModel.cs" />
     <Compile Include="ViewModels\FaultReportConfirmationViewModel.cs" />
     <Compile Include="ViewModels\FaultReportsViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

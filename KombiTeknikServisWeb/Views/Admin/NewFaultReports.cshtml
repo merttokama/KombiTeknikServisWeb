@@ -1,70 +1,83 @@
-﻿
-@model List<Entities.ViewModels.FaultReportsViewModel>
-    @{
-        ViewBag.Title = "NewFaultReports";
-        Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    }
+﻿@model Entities.ViewModels.FaultListViewModel
+@{
+    ViewBag.Title = "NewFaultReports";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@{
+    int i = 0;
+}
+<div class="col-lg-2"></div>
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Onaylanmamış Arıza Reporları Listesi</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Kullanıcı ID
+                        </th>
+                        <th>
+                            Adres
+                        </th>
+                        <th>
+                            Açıklama
+                        </th>
+                        <th>
+                            X Lokasyonu
+                        </th>
+                        <th>
+                            Y Lokasyonu
+                        </th>
+                        <th>
+                            Rapor Oluşturma Tarihi
+                        </th>
+                        <th>
+                            Teknisyen Ata
+                        </th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
 
-    <div class="col-lg-2"></div>
-    <div class="col-lg-10 grid-margin stretch-card">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Onaylanmamış Arıza Reporları Listesi</h4>
-                <table class="table table-striped">
-                    <thead>
+                    @foreach (Entities.Models.FaultReports item in Model.Arizalar)
+                    {
+                        i++;
                         <tr>
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                Kullanıcı ID
-                            </th>
-                            <th>
-                                Adres
-                            </th>
-                            <th>
-                                Açıklama
-                            </th>
-                            <th>
-                                X Lokasyonu
-                            </th>
-                            <th>
-                                Y Lokasyonu
-                            </th>
-                            <th>
-                                Rapor Oluşturma Tarihi
-                            </th>
-                            <th>
-                                Teknisyen Ata
-                            </th>
-                            <td></td>
+                            <td>@item.ID</td>
+                            <td>@item.UserID</td>
+                            <td>@item.Address</td>
+                            <td>@item.Description</td>
+                            <td>@item.LocationX</td>
+                            <td>@item.LocationY</td>
+                            <td>@item.FaultReportDate</td>
+                            <td>
+                                <select>
+                                    <option value="Seçiniz">Seçiniz</option>
+                                    @foreach (Entity.IdentityModels.ApplicationUser item1 in Model.Teknikerler)
+                                    {
+                                        <option id="optionId" value="@item1.Id">@item1.Name @item1.Surname</option>
+                                    }
+                                </select>
+                            </td>
+                            <td><button id="btnAta" name="@item.ID" type="button">Onayla</button></td>
                         </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (Entities.ViewModels.FaultReportsViewModel item in Model)
-                        {
-                            <tr>
-                                <td>@item.ID</td>
-                                <td>@item.UserID</td>
-                                <td>@item.Address</td>
-                                <td>@item.Description</td>
-                                <td>@item.LocationX</td>
-                                <td>@item.LocationY</td>
-                                <td>@item.FaultReportDate</td>
-                                <td>
-                                    <select>
-                                        @foreach (Entities.ViewModels.FaultReportsViewModel item1 in Model)
-                                        {
-                                            <option value="@item1.NameSurname">@item1.NameSurname</option>
-                                        }
-                                    </select>
-                                </td>
-                                <td><button type="button">Onayla</button></td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+@section scriptTeknisyen{
+    <script>
+        $("#btnAta").click(function () {
+            var teknisyenId = $("#optionId").val();
+            console.log(teknisyenId);
+            var arizaId = this.name;
+            window.location.href = '@Url.Action("NewFaultReportsTeknisyen", "Admin")' + "?arizaId=" + arizaId + "&teknisyenId=" + teknisyenId;
+        });
+    </script>
+}
