@@ -5,6 +5,7 @@
         Admin,
         Operator,
         User,
-        Passive
+        Passive,
+        Technicians
     }
 }

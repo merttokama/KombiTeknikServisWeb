@@ -3,9 +3,6 @@
     ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-@{ 
-    string a = "";
-}
 <div class="col-lg-2"></div>
 <div class="col-lg-10 grid-margin stretch-card">
     <div class="card">
@@ -48,26 +45,36 @@
                             <td>@item.Email</td>
                             <td>@item.Role</td>
                             <td>
-                                <select>
-                                    <option value="@item.Role">@item.Role</option>
-                                    @if (Entity.Enums.IdentityRoles.Admin.ToString() != item.Role)
-                                    {
-                                        a = "Admin";
-                                        <option id="@a" value="Admin">Admin</option>
-                                    }
-                                    @if (Entity.Enums.IdentityRoles.Operator.ToString() != item.Role)
-                                    {
-                                        a = "Operator";
-                                        <option id="@a" value="Operator">Operator</option>
-                                    }
-                                    @if (Entity.Enums.IdentityRoles.User.ToString() != item.Role)
-                                    {
-                                        a = "User";
-                                        <option id="@a" value="User">User</option>
-                                    }
-                                </select>
+                                @if (item.Role == "Technicians")
+                                {
+                                    <select id="rol_@item.Username" name="@item.Username">
+                                        <option value="@item.Role">Teknisyen</option>
+                                    </select>
+                                }
+                                else
+                                {
+                                    <select id="rol_@item.Username" name="@item.Username">
+                                        <option value="@item.Role">@item.Role</option>
+                                        @if (Entity.Enums.IdentityRoles.Admin.ToString() != item.Role)
+                                        {
+                                            <option id="Admin" value="Admin">Admin</option>
+                                        }
+                                        @if (Entity.Enums.IdentityRoles.Operator.ToString() != item.Role)
+                                        {
+                                            <option id="Operator" value="Operator">Operator</option>
+                                        }
+                                        @if (Entity.Enums.IdentityRoles.Technicians.ToString() != item.Role)
+                                        {
+                                            <option id="Technicians" value="Technicians">Teknisyen</option>
+                                        }
+                                        @if (Entity.Enums.IdentityRoles.User.ToString() != item.Role)
+                                        {
+                                            <option id="User" value="User">User</option>
+                                        }
+                                    </select>
+                                }
                             </td>
-                            <td><button name="@item.Username" id="btnKaydet" type="button">Kaydet</button></td>  
+                            <td><button name="@item.Username" class="btn btn-block btn-warning kaydet" type="button">Kaydet</button></td>
                         </tr>
                     }
 
@@ -77,11 +84,14 @@
     </div>
 </div>
 @section scriptTeknisyen{
-<script>
-        $("#btnKaydet").click(function () {
-            var ProfilRol = @a;
-            var profilUserName = this.name;
-            window.location.href = '@Url.Action("UserList", "Admin")' + "?profilUserName=" + profilUserName + "&ProfilRol=" + ProfilRol;
-        });
-</script>
+    <script>
+        $(function () {
+            $(".kaydet").click(function () {
+                var profilUsername = this.name;
+                var e = document.getElementById("rol_" + profilUsername);
+                var ProfilRol = e.options[e.selectedIndex].value;
+                window.location.href = '@Url.Action("UserListChange", "Admin")' + "?ProfilRol=" + ProfilRol + "&profilUsername=" + profilUsername;
+            });
+        })
+    </script>
 }

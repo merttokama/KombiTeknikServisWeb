@@ -67,25 +67,6 @@ namespace KombiTeknikServisWeb.Controllers
                 {
                     sayacCozulenArizaSayisi++;
                 }
-                //foreach (var item in yeniOnayArizaList)
-                //{
-                //    var t = new Works();
-                //    if (item.Approved == true && item.FaultReportID != item2.FaultReportID)
-                //    {
-                //        t.TechnicionID = 1;
-                //        t.ID = 0;
-                //        t.FaultReportID = item.FaultReportID;
-                //        t.FaultIsResolved = false;
-                //        try
-                //        {
-                //            new WorksRepo().Insert(t);
-                //        }
-                //        catch (Exception ex)
-                //        {
-                //            throw ex;
-                //        }
-                //    }
-                //}
             }
 
             #region SLIDER YÜZDE BÖLÜMÜ
@@ -213,6 +194,34 @@ namespace KombiTeknikServisWeb.Controllers
             }
             return View(ArizaBildirimleri);
         }
+        public ActionResult ActiveWorksComplated(int isId)
+        {
+            var teknikerId = 0;
+            var tumIsler = new WorksRepo().GetAll().ToList();
+            var tumTeknikerler = new TechnicionsRepo().GetAll().ToList();
+            foreach (var item in tumIsler)
+            {
+                if (item.ID == isId)
+                {
+                    item.FaultIsResolved = true;
+                    item.CompletionDate = DateTime.Now;
+                    teknikerId = item.TechnicionID;
+                }
+            }
+            if (teknikerId != 0)
+            {
+                foreach (var item in tumTeknikerler)
+                {
+                    if (item.ID == teknikerId)
+                    {
+                        item.Appropriate = true;
+                    }
+                }
+            }
+            new WorksRepo().Update();
+            new TechnicionsRepo().Update();
+            return RedirectToAction("ActiveWorks");
+        }
         public ActionResult ComplateWorks()
         {
             var onayArizaList = new FaultReportConfirmationRepo().GetAll().ToList();
@@ -227,7 +236,7 @@ namespace KombiTeknikServisWeb.Controllers
                     {
                         foreach (var item3 in islerList)
                         {
-                            if (item3.FaultIsResolved == true)
+                            if (item3.FaultIsResolved == true && item2.FaultReportID == item3.FaultReportID)
                             {
                                 ArizaBildirimleri.Add(new WorksViewModel()
                                 {
@@ -261,28 +270,28 @@ namespace KombiTeknikServisWeb.Controllers
             }));
             return View(KullanicilarProfilList);
         }
-
-        //public ActionResult UserList(string ProfilRol, string profilUserName, ApplicationUser user, string role)
-        //{
-        //    var Manager = MembershipTools.NewUserManager();
-        //    if (ModelState.IsValid)
-        //    {
-        //        // THIS LINE IS IMPORTANT
-        //        var oldUser = Manager.FindById(user.Id);
-        //        var oldRoleId = oldUser.Roles.SingleOrDefault().RoleId;
-        //        var oldRoleName = DB.Roles.SingleOrDefault(r => r.Id == oldRoleId).Name;
-
-        //        if (oldRoleName != role)
-        //        {
-        //            Manager.RemoveFromRole(user.Id, oldRoleName);
-        //            Manager.AddToRole(user.Id, role);
-        //        }
-        //        DB.Entry(user).State = EntityState.Modified;
-
-        //        return RedirectToAction("UserList");
-        //    }
-        //    return View(user);
-        //}
+        public ActionResult UserListChange(string ProfilRol, string profilUsername)
+        {
+            var username = MembershipTools.NewUserManager().FindByName(profilUsername);
+            var userid = username.Id;
+            var user = MembershipTools.NewUserManager().FindById(userid);
+            var oldroleId = user.Roles.FirstOrDefault().RoleId;
+            var oldrolename = MembershipTools.NewRoleManager().FindById(oldroleId).Name;
+            var userManager = MembershipTools.NewUserManager();
+            if (ProfilRol == "Technicians")
+            {
+                var technician = new Technicions()
+                {
+                    ID = 0,
+                    UserID = userid,
+                    Appropriate = true
+                };
+                new TechnicionsRepo().Insert(technician);
+            }
+            userManager.RemoveFromRole(userid, oldrolename);
+            userManager.AddToRole(userid, ProfilRol);
+            return RedirectToAction("UserList");
+        }
 
 
         #region PARTIALS

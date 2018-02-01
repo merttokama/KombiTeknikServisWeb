@@ -52,15 +52,15 @@
                             <td>@item.LocationY</td>
                             <td>@item.FaultReportDate</td>
                             <td>
-                                <select>
-                                    <option value="Seçiniz">Seçiniz</option>
+                                <select  id="tek_@(item.ID)" name="@item.ID">
+                                    <option value="Seciniz">Seçiniz</option>
                                     @foreach (Entity.IdentityModels.ApplicationUser item1 in Model.Teknikerler)
                                     {
-                                        <option id="optionId" value="@item1.Id">@item1.Name @item1.Surname</option>
+                                        <option value="@item1.Id">@item1.Name @item1.Surname</option>
                                     }
                                 </select>
                             </td>
-                            <td><button id="btnAta" name="@item.ID" type="button">Onayla</button></td>
+                            <td><button class="btn btn-block btn-warning onayla" name="@item.ID" type="button">Onayla</button></td>
                         </tr>
                     }
                 </tbody>
@@ -70,11 +70,15 @@
 </div>
 @section scriptTeknisyen{
     <script>
-        $("#btnAta").click(function () {
-            var teknisyenId = $("#optionId").val();
-            console.log(teknisyenId);
-            var arizaId = this.name;
-            window.location.href = '@Url.Action("NewFaultReportsTeknisyen", "Admin")' + "?arizaId=" + arizaId + "&teknisyenId=" + teknisyenId;
-        });
+        $(function () {
+            $(".onayla").click(function () {
+                var arizaId = this.name;
+                var e = document.getElementById("tek_" + arizaId);
+                if (e.options[e.selectedIndex].value != "Seciniz") {
+                    var teknisyenId = e.options[e.selectedIndex].value;
+                }
+                window.location.href = '@Url.Action("NewFaultReportsTeknisyen", "Admin")' + "?arizaId=" + arizaId + "&teknisyenId=" + teknisyenId;
+            });
+        })
     </script>
 }
